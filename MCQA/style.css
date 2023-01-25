@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+@font-face {
+    font-family: myFont;
+    src: url(../TouchTypingTest/fonts/BalooBhaijaan2-Regular.ttf);
+  }
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+    /* font-family: myFont; */
+}
+body{
+    background-color: rgb(201, 255, 131);
+    overflow-x: hidden;
+}
+nav{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1vmin;
+    padding: 5px;
+    padding-left: 2vmin;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: myFont;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+.background{
+    background: rgb(89, 211, 64);
+}
+.container{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+}
+#question{
+    margin: 4px;
+    border: 1px solid black;
+    width: 95vw;
+    padding: 4px;
+    margin: 0 2vw;
+    /* margin-top: 2vh; */
+    font-weight: bold;
+
+}
+input{
+    text-align: justify;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-bottom: 8px;
+    background: rgb(0 255 149);
+    /* font-family: 'Baloo Bhaijaan 2', cursive; */
+    font-family: myFont;
+    padding: 0 1vmin;
+    border: 1px solid black;
+
+}
+.Answers{
+    margin: 0 4.8vw;
+}
+.answer{
+    width: 92vw;
+}
+.margin{
+    margin: 2vh 2vw;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3vh 5vw;
+    text-align: center;
+}
+.btn{
+    margin: 2vmin;
+    /* min-width: 10vmin; */
+}

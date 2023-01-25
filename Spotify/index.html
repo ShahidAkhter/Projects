@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/91be61a9c2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <ul id="navbar">
+            <li id="logo"><img src="logo.png" alt="logo"><span id="webName">Spotify</span></li>
+            <!-- <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li> -->
+            <li><a id="replay">REPLAY</a></li>
+            <!-- <li><a id="resetAudioSpeed">ResetSpeed</a></li> -->
+            <li><a id="halfspeed">0.5x</a></li>
+            <li><a id="normalspeed">1x</a></li>
+            <li><a id="onenhalfspeed">1.5x</a></li>
+            <li><a id="twospeed">2x</a></li>
+
+        </ul>
+    </nav>
+    <div id="grid">
+
+        <div id="flex">
+            <div id="banner">
+                <div class="sitems">
+                    <span id="masterSongName" class="fontSize">Dhindora-Theme Song</span>
+                    <span id="imgbanner"><img src="covers/1.jpg" id="masterCoverName" alt="1"> </span>
+                    <h2 id="singerName" class="fontSize1">BHUVAN BAM</h2>
+                </div>
+            </div>
+        </div>
+        <div id="contains">
+            <div id="container"></div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="1000000000000">
+        <div id="player">
+            <div class="icons">
+                <!-- fontawesome icons -->
+                <div class="speed">
+                    <input type="range" name="range" id="speedaudio" min="0" value="500" max="1000">
+                    <div class="names">Playback Speed</div>
+                </div>
+
+                <abbr title="5s"> <i class="fas fa-angle-double-left" id="time_backward"></i></abbr>
+                <abbr title="Previous"><i class="fas fa-fast-backward" id="previous"></i></abbr>
+                <abbr title="Play/Pause"><i class="fas fa-play-circle" id="masterPlay"></i></abbr>
+                <abbr title="Next"><i class="fas fa-fast-forward" id="next"></i></abbr>
+                <abbr title="5s"><i class="fas fa-angle-double-right" id="time_forward"></i></abbr>
+
+                <div class="vol">
+                    <input type="range" name="range" id="volumes" min="0" value="1000" max="1000">
+                    <div class="names">Volume</div>
+                </div>
+
+                <!-- <i class="fas fa-angle-double-left" id="time_backward"></i>
+                <i class="fas fa-fast-backward" id="previous"></i>
+                <i class="fas fa-play-circle" id="masterPlay"></i>
+                <i class="fas fa-fast-forward" id="next"></i>
+                <i class="fas fa-angle-double-right" id="time_forward"></i>
+                <i class="fas fa-volume-up" id="volume"></i>
+                <input type="range" name="range" id="volumeChanger" min="0" value="0" max="100"> -->
+            </div>
+        </div>
+        <div id="songLength">
+            <div id="length"></div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+<!-- <script src="index.js"></script> -->
+
+</html>

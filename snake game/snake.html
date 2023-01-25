@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="shortcut icon" href="images/favicon.PNG" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+/* #up{
+    position: absolute;
+    bottom: 16vmin;
+    left: 2vmin;
+    z-index: 24;
+}
+#down{
+    position: absolute;
+    bottom: 6vmin;
+    left: 2vmin;
+    z-index: 24;
+}
+#left{
+    position: absolute;
+    bottom: 6vmin;
+    right: 12vmin; 
+    z-index: 24;
+}
+#right{
+    position: absolute;
+    bottom: 6vmin;
+    right: 2vmin; 
+    z-index: 24;
+} */
+#upside{
+    height: 0;
+    width: 0;
+    border-bottom: 10px solid #000;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+
+}
+#downside{
+    height: 0;
+    width: 0;
+    border-top: 10px solid #000;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+
+}
+#leftside{
+    height: 0;
+    width: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 10px solid #000;
+
+}
+#rightside{
+    height: 0;
+    width: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 10px solid #000;
+
+}
+
+@media only screen and (max-width:26000px) and (min-width:900px) {
+body{
+    overflow: hidden; 
+    height: 100vh;
+    width: 100vw;
+}
+#up{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 17vmin;
+    left: 2vmin;
+    z-index: 24;
+    height: 8vmin;
+    width: 8vmin;
+}
+#down{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 6vmin;
+    left: 2vmin;
+    z-index: 24;
+    height: 8vmin;
+    width: 8vmin;
+}
+#left{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 6vmin;
+    right: 13vmin; 
+    z-index: 24;
+    height: 8vmin;
+    width: 8vmin;
+}
+#right{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 6vmin;
+    right: 2vmin; 
+    z-index: 24;
+    height: 8vmin;
+    width: 8vmin;
+}
+.body{
+    background: #82a101;
+    /* background: url(images/bg.jpg); */
+    background-position: center;
+    background-size: 100% 100%;
+    height: 100vh;
+    width: 100vw;
+    content:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Pacifico', cursive;
+    font-weight: bolder;
+}
+#board{
+    position: relative;
+    left: -20vmin;
+    background: linear-gradient(#7cea99,#84e3f3);
+    height: 94vmin;
+    width: 94vmin;
+    display: grid;
+    grid-template-rows:repeat(18,1fr);
+    grid-template-columns:repeat(18,1fr);
+    border:1vmin solid black;
+    border-radius: 1%;
+}
+#scoreBox{
+    position: absolute;
+    top: 4vmin;
+    right: 10vmin;
+    font-size: 6vmin;
+}
+#hiscoreBox{
+    position: absolute;
+    top: 12vmin;
+    right: 10vmin;
+    font-size: 6vmin;
+}
+/* #speedBox{
+    position: absolute;
+    top: 20vmin;
+    right: 10vmin;
+    font-size: 6vmin;
+} */
+/* #speedText{
+    width: 25vmin;
+    font-size: 4vmin;
+}
+#speedText:focus{
+    outline: none;
+    border: 0.4vmin solid #8fad01;
+} */
+.head{
+    background:linear-gradient(rgb(255, 0, 0),rgb(255, 238, 0));
+    border-radius: 20%;
+    border: 0.4vmin solid black;
+    z-index: 1;
+}
+.snake{
+    background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+    border-radius: 25%;
+    border: 0.4vmin solid #7ee8b0;
+}
+.food{
+    background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+    /* background-color: rgb(106, 233, 255); */
+    border-radius: 20%;
+    border: 0.4vmin solid rgb(169, 255, 160);
+}
+#gifplayer{
+    position: absolute;
+    top: 16vmin;
+    right: 12vmin;
+    width:36vmin;
+    height: 10vmin;
+    opacity: 0.2;
+    transition-duration: img 1s;
+    display: none;
+}
+#bgsnake{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 60vmin;
+    width: auto;
+    z-index: 22;
+    margin-left: 6vmin;
+}
+#reset{
+    position: absolute;
+    top: 24vmin;
+    right: 10vmin;
+    font-size: 4.5vmin;
+    height: 10vmin;
+    width: 40vmin;
+    font-family: 'Pacifico', cursive;
+    background:  linear-gradient(#7cea99,#84e3f3);
+    border:0.4vmin solid black;
+    border-radius: 10%;
+    cursor: pointer;
+    z-index: 2;
+}
+#reset:hover{
+    background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+    border:0.4vmin solid black;
+}
+#reset:active{ 
+    background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+    border:0.4vmin solid black;
+}
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width:900px) and (min-width:501px){
+    body{
+        overflow: hidden; 
+        height: 100vh;
+        width: 100vw;
+    }
+    #up{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 12vmin;
+        left: 1vmin;
+        z-index: 24;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    #down{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 2vmin;
+        left: 1vmin;
+        z-index: 24;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    #left{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 1vmin;
+        right: 12vmin; 
+        z-index: 24;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    #right{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 1vmin;
+        right: 2vmin; 
+        z-index: 24;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    .body{
+        background: #82a101;
+        /* background: url(images/bg.jpg); */
+        background-position: center;
+        background-size: 100% 100%;
+        height: 100vh;
+        width: 100vw;
+        content:none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-family: 'Pacifico', cursive;
+        font-weight: bolder;
+    }
+    #board{
+        position: relative;
+        /* top: -12vmin; */
+        /* top: 10vmin; */
+        background: linear-gradient(#7cea99,#84e3f3);
+        height: 85vmin;
+        width: 85vmin;
+        display: grid;
+        grid-template-rows:repeat(18,1fr);
+        grid-template-columns:repeat(18,1fr);
+        border:1vmin solid black;
+        border-radius: 1%;
+    }
+    #scoreBox{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 1vmin;
+        left: 5vmin;
+        font-size: 3vmin;
+    }
+    #hiscoreBox{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 1vmin;
+        left: 20vmin;
+        font-size: 3vmin;
+    }
+    /* #speedBox{
+        position: absolute;
+        top: 20vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    } */
+    #gifplayer{
+        position: absolute;
+        bottom: 0;
+        right: 0.5vmin;
+        width:8vmin;
+        height: 4vmin;
+        opacity: 0.2;
+        transition-duration: img 1s;
+        display: none;
+        z-index: 23;
+    }
+    #bgsnake{
+        display: none;
+    }
+    #reset{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 1.5vmin;
+        left: 40vmin;
+        font-size: 2vmin;
+        height: 4vmin;
+        width: 20vmin;
+        font-family: 'Pacifico', cursive;
+        background:  linear-gradient(#7cea99,#84e3f3);
+        border:0.4vmin solid black;
+        border-radius: 10%;
+        cursor: pointer;
+    }
+    #reset:hover{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    #reset:active{ 
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    /* #speedText{
+        width: 25vmin;
+        font-size: 4vmin;
+    }
+    #speedText:focus{
+        outline: none;
+        border: 0.4vmin solid #8fad01;
+    } */
+    .head{
+        background:linear-gradient(rgb(255, 0, 0),rgb(255, 238, 0));
+        border-radius: 20%;
+        border: 0.4vmin solid black;
+        z-index: 1;
+    }
+    .snake{
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border-radius: 25%;
+        border: 0.4vmin solid #7ee8b0;
+    }
+    .food{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        /* background-color: rgb(106, 233, 255); */
+        border-radius: 20%;
+        border: 0.4vmin solid rgb(169, 255, 160);
+    }
+}
+
+
+
+
+
+@media only screen and (max-width:500px) and (min-width:401px){
+    body{
+        overflow: hidden; 
+        height: 100vh;
+        width: 100vw;
+    }
+    #up{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 9vmin;
+        left: 45vmin;
+        z-index: 24;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    #down{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0.5vmin;
+        left: 45vmin;
+        z-index: 24;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    #left{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 4.8vmin;
+        left: 35.8vmin;
+        z-index: 24;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    #right{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 4.8vmin;
+        left: 54.2vmin;
+        z-index: 24;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    .body{
+        background: #82a101;
+        /* background: url(images/bg.jpg); */
+        background-position: center;
+        background-size: 100% 100%;
+        height: 100vh;
+        width: 100vw;
+        content:none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-family: 'Pacifico', cursive;
+        font-weight: bolder;
+    }
+    #board{
+        position: relative;
+        /* top: -12vmin; */
+        /* top: 10vmin; */
+        background: linear-gradient(#7cea99,#84e3f3);
+        height: 80vmin;
+        width: 80vmin;
+        display: grid;
+        grid-template-rows:repeat(18,1fr);
+        grid-template-columns:repeat(18,1fr);
+        border:1vmin solid black;
+        border-radius: 1%;
+    }
+    #scoreBox{
+        position: absolute;
+        top: 1vmin;
+        right: 10vmin;
+        font-size: 4vmin;
+    }
+    #hiscoreBox{
+        position: absolute;
+        top: 5vmin;
+        right: 10vmin;
+        font-size: 4vmin;
+    }
+    /* #speedBox{
+        position: absolute;
+        top: 20vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    } */
+    #gifplayer{
+        position: absolute;
+        bottom: 0;
+        right: 0.5vmin;
+        width:8vmin;
+        height: 4vmin;
+        opacity: 0.2;
+        transition-duration: img 1s;
+        display: none;
+        z-index: 23;
+    }
+    #bgsnake{
+        display: none;
+    }
+    #reset{
+        position: absolute;
+        top: 2vmin;
+        left: 8vmin;
+        font-size: 4.5vmin;
+        height: 10vmin;
+        width: 40vmin;
+        font-family: 'Pacifico', cursive;
+        background:  linear-gradient(#7cea99,#84e3f3);
+        border:0.4vmin solid black;
+        border-radius: 10%;
+        cursor: pointer;
+        z-index: 2;
+    }
+    #reset:hover{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    #reset:active{ 
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    /* #speedText{
+        width: 25vmin;
+        font-size: 4vmin;
+    }
+    #speedText:focus{
+        outline: none;
+        border: 0.4vmin solid #8fad01;
+    } */
+    .head{
+        background:linear-gradient(rgb(255, 0, 0),rgb(255, 238, 0));
+        border-radius: 20%;
+        border: 0.4vmin solid black;
+        z-index: 1;
+    }
+    .snake{
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border-radius: 25%;
+        border: 0.4vmin solid #7ee8b0;
+    }
+    .food{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        /* background-color: rgb(106, 233, 255); */
+        border-radius: 20%;
+        border: 0.4vmin solid rgb(169, 255, 160);
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width:400px) and (min-width:301px){
+    body{
+        overflow: hidden; 
+        height: 100vh;
+        width: 100vw;
+    }
+    #up{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 17vmin;
+        left: 45vmin;
+        z-index: 24;
+        height: 10vmin;
+        width: 10vmin;
+    }
+    #down{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0.5vmin;
+        left: 45vmin;
+        z-index: 24;
+        height: 10vmin;
+        width: 10vmin;
+    }
+    #left{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 8.8vmin;
+        left: 34vmin;
+        z-index: 24;
+        height: 10vmin;
+        width: 10vmin;
+    }
+    #right{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 8.8vmin;
+        left: 56vmin;
+        z-index: 24;
+        height: 10vmin;
+        width: 10vmin;
+    }
+    .body{
+        background: #82a101;
+        /* background: url(images/bg.jpg); */
+        background-position: center;
+        background-size: 100% 100%;
+        height: 100vh;
+        width: 100vw;
+        content:none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-family: 'Pacifico', cursive;
+        font-weight: bolder;
+    }
+    #board{
+        position: relative;
+        /* top: vmin; */
+        /* top: 10vmin; */
+        background: linear-gradient(#7cea99,#84e3f3);
+        height: 80vmin;
+        width: 80vmin;
+        display: grid;
+        grid-template-rows:repeat(18,1fr);
+        grid-template-columns:repeat(18,1fr);
+        border:1vmin solid black;
+        border-radius: 1%;
+    }
+    #scoreBox{
+        position: absolute;
+        top: 4vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    }
+    #hiscoreBox{
+        position: absolute;
+        top: 12vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    }
+    /* #speedBox{
+        position: absolute;
+        top: 20vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    } */
+    #gifplayer{
+        position: absolute;
+        bottom: 0;
+        right: 0.5vmin;
+        width:8vmin;
+        height: 4vmin;
+        opacity: 0.2;
+        transition-duration: img 1s;
+        display: none;
+        z-index: 23;
+    }
+    #bgsnake{
+        display: none;
+    }
+    #reset{
+        position: absolute;
+        top: 5vmin;
+        left: 5vmin;
+        font-size: 4.5vmin;
+        height: 10vmin;
+        width: 40vmin;
+        font-family: 'Pacifico', cursive;
+        background:  linear-gradient(#7cea99,#84e3f3);
+        border:0.4vmin solid black;
+        border-radius: 10%;
+        cursor: pointer;
+        z-index: 2;
+    }
+    #reset:hover{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    #reset:active{ 
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    /* #speedText{
+        width: 25vmin;
+        font-size: 4vmin;
+    }
+    #speedText:focus{
+        outline: none;
+        border: 0.4vmin solid #8fad01;
+    } */
+    .head{
+        background:linear-gradient(rgb(255, 0, 0),rgb(255, 238, 0));
+        border-radius: 20%;
+        border: 0.4vmin solid black;
+        z-index: 1;
+    }
+    .snake{
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border-radius: 25%;
+        border: 0.4vmin solid #7ee8b0;
+    }
+    .food{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        /* background-color: rgb(106, 233, 255); */
+        border-radius: 20%;
+        border: 0.4vmin solid rgb(169, 255, 160);
+    }
+}
+
+
+
+
+
+
+
+@media only screen and (max-width:300px) and (min-width:240px){
+    body{
+        overflow: hidden; 
+        height: 100vh;
+        width: 100vw;
+    }
+    #up{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 40vmin;
+        left: 40vmin;
+        z-index: 24;
+        height: 25vmin;
+        width: 25vmin;
+    }
+    #down{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 2vmin;
+        left: 40vmin;
+        z-index: 24;
+        height: 25vmin;
+        width: 25vmin;
+    }
+    #left{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 20vmin;
+        left: 13vmin;
+        z-index: 24;
+        height: 25vmin;
+        width: 25vmin;
+    }
+    #right{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 20vmin;
+        left: 68vmin;
+        z-index: 24;
+        height: 25vmin;
+        width: 25vmin;
+    }
+    .body{
+        background: #82a101;
+        /* background: url(images/bg.jpg); */
+        background-position: center;
+        background-size: 100% 100%;
+        height: 100vh;
+        width: 100vw;
+        content:none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-family: 'Pacifico', cursive;
+        font-weight: bolder;
+    }
+    #board{
+        position: relative;
+        /* top: vmin; */
+        top: -20vmin;
+        background: linear-gradient(#7cea99,#84e3f3);
+        height: 90vmin;
+        width: 90vmin;
+        display: grid;
+        grid-template-rows:repeat(18,1fr);
+        grid-template-columns:repeat(18,1fr);
+        border:1vmin solid black;
+        border-radius: 1%;
+    }
+    #scoreBox{
+        position: absolute;
+        top: 4vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    }
+    #hiscoreBox{
+        position: absolute;
+        top: 12vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    }
+    /* #speedBox{
+        position: absolute;
+        top: 20vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    } */
+    #gifplayer{
+        position: absolute;
+        bottom: 0;
+        right: 0.5vmin;
+        width:8vmin;
+        height: 4vmin;
+        opacity: 0.2;
+        transition-duration: img 1s;
+        display: none;
+        z-index: 23;
+    }
+    #bgsnake{
+        display: none;
+    }
+    #reset{
+        position: absolute;
+        top: 5vmin;
+        left: 5vmin;
+        font-size: 4.5vmin;
+        height: 10vmin;
+        width: 40vmin;
+        font-family: 'Pacifico', cursive;
+        background:  linear-gradient(#7cea99,#84e3f3);
+        border:0.4vmin solid black;
+        border-radius: 10%;
+        cursor: pointer;
+        z-index: 2;
+    }
+    #reset:hover{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    #reset:active{ 
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    /* #speedText{
+        width: 25vmin;
+        font-size: 4vmin;
+    }
+    #speedText:focus{
+        outline: none;
+        border: 0.4vmin solid #8fad01;
+    } */
+    .head{
+        background:linear-gradient(rgb(255, 0, 0),rgb(255, 238, 0));
+        border-radius: 20%;
+        border: 0.4vmin solid black;
+        z-index: 1;
+    }
+    .snake{
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border-radius: 25%;
+        border: 0.4vmin solid #7ee8b0;
+    }
+    .food{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        /* background-color: rgb(106, 233, 255); */
+        border-radius: 20%;
+        border: 0.4vmin solid rgb(169, 255, 160);
+    }
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width:240px){
+    body{
+        overflow: hidden; 
+        height: 100vh;
+        width: 100vw;
+    }
+    #up{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 65vmin;
+        left: 40vmin;
+        z-index: 24;
+        height: 25vmin;
+        width: 25vmin;
+    }
+    #down{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 20vmin;
+        left: 40vmin;
+        z-index: 24;
+        height: 25vmin;
+        width: 25vmin;
+    }
+    #left{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 42.1vmin;
+        left: 13vmin;
+        z-index: 24;
+        height: 25vmin;
+        width: 25vmin;
+    }
+    #right{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 42.1vmin;
+        left: 68vmin;
+        z-index: 24;
+        height: 25vmin;
+        width: 25vmin;
+    }
+    .body{
+        background: #82a101;
+        /* background: url(images/bg.jpg); */
+        background-position: center;
+        background-size: 100% 100%;
+        height: 100vh;
+        width: 100vw;
+        content:none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-family: 'Pacifico', cursive;
+        font-weight: bolder;
+    }
+    #board{
+        position: relative;
+        /* top: vmin; */
+        top: -35vmin;
+        background: linear-gradient(#7cea99,#84e3f3);
+        height: 90vmin;
+        width: 90vmin;
+        display: grid;
+        grid-template-rows:repeat(18,1fr);
+        grid-template-columns:repeat(18,1fr);
+        border:1vmin solid black;
+        border-radius: 1%;
+    }
+    #scoreBox{
+        position: absolute;
+        top: 4vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    }
+    #hiscoreBox{
+        position: absolute;
+        top: 12vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    }
+    /* #speedBox{
+        position: absolute;
+        top: 20vmin;
+        right: 10vmin;
+        font-size: 6vmin;
+    } */
+    #gifplayer{
+        position: absolute;
+        bottom: 0;
+        right: 0.5vmin;
+        width:8vmin;
+        height: 4vmin;
+        opacity: 0.2;
+        transition-duration: img 1s;
+        display: none;
+        z-index: 23;
+    }
+    #bgsnake{
+        display: none;
+    }
+    #reset{
+        position: absolute;
+        top: 5vmin;
+        left: 5vmin;
+        font-size: 4.5vmin;
+        height: 10vmin;
+        width: 40vmin;
+        font-family: 'Pacifico', cursive;
+        background:  linear-gradient(#7cea99,#84e3f3);
+        border:0.4vmin solid black;
+        border-radius: 10%;
+        cursor: pointer;
+        z-index: 2;
+    }
+    #reset:hover{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    #reset:active{ 
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border:0.4vmin solid black;
+    }
+    /* #speedText{
+        width: 25vmin;
+        font-size: 4vmin;
+    }
+    #speedText:focus{
+        outline: none;
+        border: 0.4vmin solid #8fad01;
+    } */
+    .head{
+        background:linear-gradient(rgb(255, 0, 0),rgb(255, 238, 0));
+        border-radius: 20%;
+        border: 0.4vmin solid black;
+        z-index: 1;
+    }
+    .snake{
+        background:linear-gradient(rgb(255, 0, 242),rgb(17, 0, 255));
+        border-radius: 25%;
+        border: 0.4vmin solid #7ee8b0;
+    }
+    .food{
+        background:linear-gradient(rgb(106, 233, 255),rgb(17, 0, 255));
+        /* background-color: rgb(106, 233, 255); */
+        border-radius: 20%;
+        border: 0.4vmin solid rgb(169, 255, 160);
+    }
+}
+    </style>
+</head>
+<body>
+    <div id="buttoncommand">
+        <button id="up" onclick="up()"><div id="upside"></div></button>
+        <button id="down" onclick="down()"><div id="downside"></div></button>
+        <button id="left" onclick="left()"><div id="leftside"></div></button>
+        <button id="right" onclick="right()"><div id="rightside"></div></button>
+    </div>
+    <img id="gifplayer" src="music/playing.gif" alt="">
+    <div class="body">
+        <div id="scoreBox">Score: 0</div>
+        <div id="hiscoreBox">High-Score: 0</div>
+        <button id="reset" onclick="reset()">Reset High-Score</button>
+        <!-- <div id="speedBox">Speed: <input type="text" name="" id="speedText"></div> -->
+        <div id="board"></div>
+    </div>
+    <div class="snakebg">
+        <img id="bgsnake" src="images/faviconed.png" alt="">
+    </div>
+
+</body>
+<script>
+    // Constant and Variables
+let inputDir = { x: 0, y: 0 }
+const foodSound = new Audio('music/food.mp3');
+const gameOverSound = new Audio('music/gameover.mp3');
+const moveSound = new Audio('music/move.mp3');
+const musicSound = new Audio('music/music.mp3');
+const player = new Audio('music/playing.gif');
+lastPaintTime = 0;
+score = 0;
+snakeArr = [{ x: 12, y: 14 }];
+food = { x: 6, y: 10 };
+speed = 10;
+lastGridnum = 18;
+a = 2;
+b = lastGridnum - 2;
+
+// Functions
+function main(ctime) {
+    window.requestAnimationFrame(main);
+    // console.log(ctime);
+    if ((ctime - lastPaintTime) / 1000 < 1 / speed) {
+        return;
+    }
+    lastPaintTime = ctime;
+    // musicSound.play();
+    gameEngine();
+}
+
+function isCollide(snake) {
+    // if you bump into yourself
+    for (let i = 1; i < snakeArr.length; i++) {
+        if (snakeArr[i].x === snake[0].x && snakeArr[i].y === snake[0].y) {
+            return true;
+        }
+    }
+    // if you bump into wall
+    if (snake[0].x >= lastGridnum || snake[0].x <= 0 || snake[0].y >= lastGridnum || snake[0].y <= 0) {
+        return true;
+    }
+}
+function gameEngine() {
+    // Part 1: Updating the snake array and food
+
+    if (isCollide(snakeArr)) {
+        gameOverSound.play();
+        musicSound.pause();
+        inputDir = { x: 0, y: 0 };
+        alert('Game Over. Press Enter Key OR Okay Button To Start Game Again!!!!');
+        snakeArr = [{ x: 12, y: 14 }];
+        // food = { x: 12, y: 14 };
+        musicSound.play();
+        score = 0;
+        scoreBox.innerHTML = "Score: " + score;
+        document.getElementById('gifplayer').style.display = "none";
+    }
+    // if you have eaten the food, increment score and regenerate the food
+    if (snakeArr[0].x === food.x && snakeArr[0].y === food.y) {
+        foodSound.play();
+        score += 1;
+        if (score > hiscoreval) {
+            hiscoreval = score;
+            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
+            hiscoreBox.innerHTML = "High-Score: " + hiscoreval;
+            document.getElementById('gifplayer').style.display = "block";
+        }
+        scoreBox.innerHTML = "Score: " + score;
+        snakeArr.unshift({ x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y });
+        food = { x: Math.round(a + (b - a) * Math.random()), y: Math.round(a + (b - a) * Math.random()) }
+    }
+
+    //Moving the snake
+
+    for (let i = snakeArr.length - 2; i >= 0; i--) {
+        snakeArr[i + 1] = { ...snakeArr[i] };
+    }
+    snakeArr[0].x += inputDir.x;
+    snakeArr[0].y += inputDir.y;
+    // Part 2: Displaying the snake and food
+    // Displaying the snake
+    board.innerHTML = "";
+    snakeArr.forEach((e, index) => {
+        snakeElement = document.createElement('div');
+        snakeElement.style.gridRowStart = e.y;
+        snakeElement.style.gridColumnStart = e.x;
+        if (index === 0) {
+            snakeElement.classList.add('head');
+        }
+        else {
+            snakeElement.classList.add('snake');
+        }
+        board.appendChild(snakeElement);
+    });
+    // Displaying the food
+    foodElement = document.createElement('div');
+    foodElement.style.gridRowStart = food.y;
+    foodElement.style.gridColumnStart = food.x;
+    foodElement.classList.add('food');
+    board.appendChild(foodElement);
+}
+
+
+
+
+// main logic start here
+let hiscore = localStorage.getItem("hiscore");
+if (hiscore === null) {
+    hiscoreval = 0;
+    localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
+}
+else {
+    hiscoreval = JSON.parse(hiscore);
+    hiscoreBox.innerHTML = "High-Score: " + hiscore;
+}
+window.requestAnimationFrame(main);
+window.addEventListener('keydown', e => {
+    inputDir = { x: 0, y: 1 } //Start the game
+    moveSound.play();
+    switch (e.key) {
+        case "ArrowUp":
+            console.log("ArrowUp");
+            inputDir.x = 0;
+            inputDir.y = -1;
+            break;
+
+        case "ArrowDown":
+            console.log("ArrowDown");
+            inputDir.x = 0;
+            inputDir.y = 1;
+            break;
+
+        case "ArrowLeft":
+            console.log("ArrowLeft");
+            inputDir.x = -1;
+            inputDir.y = 0;
+            break;
+
+        case "ArrowRight":
+            console.log("ArrowRight");
+            inputDir.x = 1;
+            inputDir.y = 0;
+            break;
+    }
+});
+
+function up() {
+    console.log("ArrowUp");
+    moveSound.play();
+    inputDir.x = 0;
+    inputDir.y = -1;
+}
+function down() {
+    console.log("ArrowDown");
+    moveSound.play();
+    inputDir.x = 0;
+    inputDir.y = 1;
+}
+function left() {
+    console.log("ArrowLeft");
+    moveSound.play();
+    inputDir.x = -1;
+    inputDir.y = 0;
+}
+function right() {
+    console.log("ArrowRight");
+    moveSound.play();
+    inputDir.x = 1;
+    inputDir.y = 0;
+}
+
+
+
+
+// Function button reset hiscore
+function reset() {
+    localStorage.clear();
+    hiscoreBox.innerHTML = "High-Score: " + hiscore;
+    console.log("Successfully Reset Done!!!")
+    if (hiscore === null) {
+        hiscore = 0;
+    }
+    else {
+        hiscore != 0;
+        hiscoreval = JSON.parse(hiscore);
+        hiscoreBox.innerHTML = "High-Score: " + hiscore;
+    }
+}
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="shortcut icon" href="images/favicon.PNG" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="buttoncommand">
+       <!-- <button id="up" onclick="up()"><div id="upside"></div></button>
+        <button id="down" onclick="down()"><div id="downside"></div></button>
+        <button id="left" onclick="left()"><div id="leftside"></div></button>
+        <button id="right" onclick="right()"><div id="rightside"></div></button>-->
+    </div>
+    <img id="gifplayer" src="music/playing.gif" alt="">
+    <div class="body">
+        <div id="scoreBox">Score: 0</div>
+        <div id="hiscoreBox">High-Score: 0</div>
+        <input type="range" name="volume" id="volume" min="0" max="100" value="10">
+        <button id="reset" onclick="reset()">Reset High-Score</button>
+        
+        <!-- <div id="speedBox">Speed: <input type="text" name="" id="speedText"></div> -->
+        <div id="board"></div>
+    </div>
+    <div class="snakebg">
+        <img id="bgsnake" src="images/faviconed.png" alt="">
+    </div>
+
+</body>
+<script src="index.js"></script>
+</html>

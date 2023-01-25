@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+
+@font-face {
+    font-family: myFont;
+    src: url(../TouchTypingTest/fonts/BalooBhaijaan2-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: myFont;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-size: 100vh 100vw;
+    background-color: rgb(201, 255, 131);
+    overflow-x: hidden;
+}
+
+/* img {
+    pointer-events: none
+} */
+
+nav {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    padding-left: 2vmin;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: myFont;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.background {
+    background: rgb(89, 211, 64);
+}
+
+.text-color {
+    color: rgb(201, 255, 131);
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0.1vmin;
+}
+
+#buttonsbox {
+    position: sticky;
+    top: 0;
+    background: rgb(255, 255, 255);
+    /* width: 100vw; */
+    z-index: 1;
+}
+
+#searchpage {
+    width: 50vmin;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+#imgMain {
+    margin: 1vmin;
+    padding: 1px;
+    border: 1px solid black;
+    margin-bottom: 10vmin;
+}
+
+#slideNo {
+    font-family: myFont;
+    background: rgb(89, 211, 64);
+    padding: 0 6px;
+    min-width: 32px;
+    text-align: center;
+}
+
+#ZoomIn,
+#ZoomOut {
+    margin-bottom: 8px;
+    background-color: rgb(89, 211, 64);
+    padding: 0;
+}
+
+.h-26 {
+    height: 26px;
+}
+
+.p-1 {
+    padding: 1vmin;
+}
+
+input {
+    min-width: 42px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 8px;
+    background: rgb(89, 211, 64);
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: myFont;
+    padding: 0;
+}
+
+.font-size {
+    font-size: 24px;
+}
+
+.font-size1 {
+    font-size: 18px;
+}
+
+.margin-box1 {
+    margin: 0.5vmin;
+}
+
+.m-left {
+    margin-left: 2vmin;
+}
+
+.marginnav {
+    margin: 0 1vmin;
+}
+
+.color-red {
+    color: red;
+}
+
+.nav-sidebar {
+    position: absolute;
+    width: 100vw;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1vmin;
+    padding: 5px;
+    padding-left: 2vmin;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: myFont;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    background: rgb(121, 255, 94);
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+.nav-side {
+    background: rgb(89, 211, 64);
+    font-size: 20px;
+    padding: 2px 4px;
+    border: 1px solid black;
+    font-weight: bold;
+    margin: 4px;
+}
+
+.displayYesNo {
+    padding: 0 6px;
+}
+
+.border-1 {
+    border: 1px solid black;
+}
+
+.bgwhite {
+    background: white;
+}
+
+.paddings {
+    padding: 3px;
+}
+
+.flex1 {
+    display: flex;
+}
+
+.alignItems {
+    align-items: center;
+}
+
+.JustifyContent {
+    justify-content: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#webname {
+    justify-content: space-between;
+}
+
+#searchbutton,
+#displayer,
+#forward,
+#backward,
+#slideNo,
+#ZoomIn,
+#ZoomOut,
+.nav-side {
+    background: rgb(0, 255, 149);
+}
+#moveToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    display: none;
+    width: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background: rgb(102, 255, 0);
+    border: 1px solid black;
+    }
+
+/* .mar-7 {
+    margin-top: 4vmin;
+}
+
+.mar-7-Bottom {
+    margin-bottom: 4vmin;
+}
+#mBottom{
+    margin-bottom: 4vmin;
+}
+label {
+    font-size: 24px;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: myFont;
+    margin: 0;
+}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    /* margin-bottom: 1vmin; */
+   /* padding: 5px;
+    padding-left: 2vmin;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: myFont;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+#footerRibbon{
+    position: sticky;
+    bottom: 0;
+}
+@media screen and (max-width: 640px) {
+    .footer {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 270px) {
+    .footer {
+        font-size: 10px;
+    }
+} */

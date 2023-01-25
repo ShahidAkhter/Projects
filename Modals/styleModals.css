@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+button {
+    width: 60vmin;
+    color: white;
+    background: linear-gradient(rgb(0, 192, 86), rgb(0, 255, 149));
+    padding: 1vmin;
+    margin: 1vmin 0;
+    border-radius: 4px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 3vmin;
+    /* align-self: baseline; */
+}
+
+.containsModal {
+    position: fixed;
+    top: 4vmin;
+    /* position: absolute; */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: rgb(0, 255, 149, 0.2);
+    z-index: 10;
+}
+
+.modalContainer {
+    /* max-height: 15vmin; */
+    width: 60vmin;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(rgb(116, 255, 178), rgb(173, 255, 221));
+    border: 1px solid black;
+    padding: 1vmin;
+    margin: 1vmin;
+    border-radius: 4px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 4vmin;
+}
+
+#alert2 {
+    font-size: 3vmin;
+}

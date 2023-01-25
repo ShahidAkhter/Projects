@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+        @font-face {
+            font-family: myFont;
+            src: url(../TouchTypingTest/fonts/BalooBhaijaan2-Regular.ttf);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            font-family: myFont;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(201, 255, 131);
+            overflow-x: hidden;
+        }
+
+        #copydata {
+            font-size: 20px;
+            text-align: justify;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .table {
+            margin: 8px;
+            padding:  2px 8px;
+            border: 1px solid black;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            color: rgb(0, 0, 0);
+            margin-bottom: 1vmin;
+            padding: 1px;
+            padding-left: 2vmin;
+            font-family: 'Baloo Bhaijaan 2', cursive;
+            font-family: myFont;
+            font-weight: bold;
+            border-bottom: 1px solid black;
+        }
+
+        .background {
+            background: rgb(89, 211, 64);
+        }
+
+        .text-color {
+            color: rgb(201, 255, 131);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="name background" id="webname">Table</nav>
+    <div id="copydata">
+
+    </div>
+</body>
+<script>
+
+    for (let i = 0; i <= 40; i++) {
+        document.getElementById('copydata').innerHTML += `<div id='table${i}' class='table'></div>`
+        for (let j = 0; j < 10; j++) {
+            document.getElementById(`table${i}`).innerHTML += `<div id='table${i}of${j}' class='tables'>${i} X ${j} = ${i * j}</div>`
+        }
+    }
+</script>
+
+</html>

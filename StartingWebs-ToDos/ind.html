@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <nav class="name">Bingo</nav>
+    <div class="flex">
+        <input type="text" id="aval" placeholder="Columns">
+        <input type="text" id="bval" placeholder="Rows">
+        <button id="setval">AddTable</button>
+    </div>
+    <div class="flex" id="flexend">
+        <button id="startPlaying">Start</button>
+        <div id="Buttons" class="flex">
+            <button class="ptBingo" id="Scorebtn"><span class="innerData" id="score"></span></button>
+        </div>
+        <!-- <button id="reset">Reset</button> -->
+    </div>
+    <div id="gameBody">
+        <table id="maindos"></table>
+    </div>
+</body>
+<!-- <script src="arr.js"></script> -->
+<script src="script.js"></script>
+
+</html>

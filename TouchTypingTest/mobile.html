@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>TypingTest-Test Your Typing Speed</title>
+    <!-- <link rel="shortcut icon" href="logo.PNG" type="image/x-icon"> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+/* @font-face {
+    font-family: myFont;
+    src: url(fonts/BalooBhaijaan2-Regular.ttf);
+  } */
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: rgb(201, 255, 131);
+    overflow-x: hidden;
+}
+nav{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1vmin;
+    padding: 5px;
+    padding-left: 2vmin;
+    font-family: myFont;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+.website{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.flex-col{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+textarea, input{
+    margin: 4px;
+    border: 1px solid black;
+    width: 95vmin;
+    padding: 4px;
+}
+textarea{
+    text-align: justify;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    resize: none;
+    font-weight: bolder;
+}
+#typingData{
+    width: 98vmin;
+}
+label{
+    font-size: 24px;
+    font-family: myFont;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    margin: 0;
+}
+input{
+    max-width: 200px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    margin-bottom: 8px;
+    background: rgb(89, 211, 64);
+    font-family: myFont;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    padding: 0;
+}
+.background{
+    background: rgb(89, 211, 64);
+}
+.text-color{
+    color: rgb(201, 255, 131);
+}
+.user-selection{
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.wid-100{
+    width: 100vw;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1vmin;
+    padding: 5px;
+    padding-left: 2vmin;
+    font-family: myFont;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.mar-7{
+    margin-top: 4vmin;
+}
+#marginBottom{
+    margin-bottom: 28vmin;
+}
+/* .dis{
+    margin: 4px;
+    border: 1px solid black;
+    width: 95vmin;
+    padding: 4px;
+    text-align: justify;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    resize: none;
+    font-weight: bolder;
+} */
+@media screen and (max-width: 1200px) {
+    .website{
+        flex-direction: column-reverse;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <nav class="name background" id="webname">TypingTest</nav>
+    <div class="website" id="prints">
+        <!-- <div id="displayYes"> -->
+            <div id="typingData" class="typingData flex">
+                <div class="singledata flex-col">
+                    <label for="times">Timer</label>
+                    <input type="button" id="times" value="NaN">
+                </div>
+                <div class="singledata flex-col">
+                    <label for="speed">Speed</label>
+                    <input type="button" id="speed" value="NaN">
+                </div>
+                <div class="singledata flex-col">
+                    <label for="accuracy">Accuracy</label>
+                    <input type="button" id="accuracy" value="NaN">
+                </div>
+            </div>
+            <div id="autotext" class="text user-selection">
+                <!-- <div id="innerdata">hello its auto text generator</div> -->
+                <textarea id="innerdata" class="user-selection" cols="30" rows="16"></textarea>
+            </div>
+            <div id="entertext wid-100" class="text">
+                <textarea id="textareas" cols="30" rows="4"></textarea>
+            </div>
+        <!-- </div> -->
+        <div class="singledata flex-col">
+            <!-- <label for="practiceScore">Practice-Score:</label> -->
+            <input type="button" id="practiceScore" value="Practice-Score">
+        </div>
+        <div class="singledata flex-col" id="display1">
+            <!-- <label for="reset">Reset:</label> -->
+            <input type="button" id="reset" class="cursor-pointer" value="Reset">
+        </div>
+        <div class="singledata flex-col" id="display2">
+            <!-- <label for="reset">Reset:</label> -->
+            <input type="button" id="print" class="cursor-pointer" value="Print">
+        </div>
+    </div>
+    <div class="name background center wid-100 mar-7" id="printNone">My Practices</div>
+        <!-- press enter after completing auto text into enter text -->
+    <div class="flex flex-col">
+        <div id="yourAnswer" class="">
+            <!-- <span class="innerdata flex" id="span"></span> -->
+            <!-- <span class="innerdata flex">a+b=yourAnswer/rightAnswer</span> -->
+        </div>
+    </div>
+    <div class="name background center mar-7"><label for="#">TypingTest.com</label></div>
+</body>
+<!-- <script src="script.js"></script> -->
+<script>
+    // variables and constants
+let val = 0;
+let score = 1;
+// It generates random Text for Typing
+randomTextGenerator = () => {
+    textGenerator = [
+        "Father refers to the male parent of a child in a family. He is a very important member of the family. He is the one who takes care of the entire family including his own parents, wife and children. He earns his bread and butter for his family and tries his best to fulfil their needs and demands. A father is the one who maintains strict discipline among the family members and is looked upon with respect by everyone. He shows the right path to his children and motivates them to achieve the goals of their lives through proper education. A father is the one who stands rock solid beside his family and protects them from the evils of society. He acts as the root of his family and binds each member with love and respect.",
+        "Mother refers to the female parent of a child in a family. She is an integral member of the family. She is the one who bears the baby in her womb for nine months and brings the child into this world. She takes care of the whole family including her husband, children, in-laws as well as her own parents. She looks after all the household chores and attends to the basic needs and demands of the entire family. The famous adage states, “Since God can’t be present everywhere, He created a Mother”. She is the first teacher to her child before he/she gets introduced to outsiders. A child tends to learn the basic rules and norms of society from his/her mother and she protects her child from all kinds of societal vices. A mother is the one who nurtures her child with utmost love and care.",
+        "I am a book lover and love to read books a lot. We have got a family library in our house because my parents and my siblings also love to read the book. Today I am going to share my most favorite books ever. In my life, I have read so many books that I can’t count but there is one book which is always special for me and will be special always. That is ‘Robinson Crusoe’ by Daniel Defoe. I invented Daniel Defoe as my most favorite novel writer after reading Robinson Crusoe.  The story of these books amazed me, I was thrilled and it was a real feeling for me. The book is really thrilling; you will love every single angle and concept of the story. Reading such a long book, I never felt bored. Daniel has magic in his writing because there is suspense every time that you will love to find a solution. I love this book very much.",
+        "The place was large, well lighted, and comfortably warmed; good pictures hung on the walls, and racks of books filled every available nook. At the upper end of the room, near the master's desk, stood an open piano; and at the lower, a table bearing plates, cups, and wholesome refreshments which would be distributed among the boys when study-hour was over. Throughout the room great cheerfulness and comfort reigned, and the apple-cheeked boys at the desks showed that they were generously cared for under this kindly roof. They were mostly little fellows, ranging in age from eight to twelve years, and a merrier company one would journey far to find.",
+        "Mind can be observed and known. But each one can know directly only his own mind, and not another's. You and I may look into each other's face and there guess the meaning that lies back of the smile or frown or flash of the eye, and so read something of the mind's activity. But neither directly meets the other's mind. I may learn to recognize your features, know your voice, respond to the clasp of your hand; but the mind, the consciousness, which does your thinking and feels your joys and sorrows, I can never know completely. Indeed I can never know your mind at all except through your bodily acts and expressions. Nor is there any way in which you can reveal your mind, your spiritual self, to me except through these means.",
+        "One should always keep in mind that psychology is essentially a laboratory science, and not a text-book subject. The laboratory material is to be found in ourselves and in those about us. While the text should be thoroughly mastered, its statements should always be verified by reference to one's own experience, and observation of others. Especially should prospective teachers constantly correlate the lessons of the book with the observation of children at work in the school. The problems suggested for observation and introspection will, if mastered, do much to render practical and helpful the truths of psychology.",
+        'Education was long looked upon as affecting the mind only; the body was either left out of account or neglected. Later science has shown, however, that the mind cannot be trained except as the nervous system is trained and developed. For not sensation and the simpler mental processes alone, but memory, imagination, judgment, reasoning and every other act of the mind are dependent on the nervous system finally for their efficiency. The little child gets its first mental experiences in connection with certain movements or acts set up reflexly by the pre-organized nervous system. From this time on movement and idea are so inextricably bound together that they cannot be separated. The mind and the brain are so vitally related that it is impossible to educate one without performing a like office for the other; and it is likewise impossible to neglect the one without causing the other to suffer in its development.',
+        "This book, which presents the whole splendid history of English literature from Anglo-Saxon times to the close of the Victorian Era, has three specific aims. The first is to create or to encourage in every student the desire to read the best books, and to know literature itself rather than what has been written about literature. The second is to interpret literature both personally and historically, that is, to show how a great book generally reflects not only the author's life and thought but also the spirit of the age and the ideals of the nation's history. The third aim is to show, by a study of each successive period, how our literature has steadily developed from its first simple songs and stories to its present complexity in prose and poetry.",
+    ];
+    a = 0;
+    b = textGenerator.length - 1;
+    c = Math.round(b - (b - a) * Math.random());
+    document.getElementById("innerdata").innerText = textGenerator[c];
+    resetText();
+}
+resetText = () => {
+    d = c
+    document.getElementById('reset').addEventListener('click', () => {
+        if (d == (textGenerator.length - 1)) {
+            d = 0;
+        } else {
+            d++;
+        }
+        setTimeout(() => {
+            document.getElementById("innerdata").innerText = textGenerator[d];
+        }, 240);
+    })
+}
+resetTexting = () => {
+    setTimeout(() => {
+        d = c
+        if (d == (textGenerator.length - 1)) {
+            d = 0;
+        } else {
+            d++;
+        }
+        setTimeout(() => {
+            document.getElementById("innerdata").innerText = textGenerator[d];
+        }, 240);
+
+    }, 240);
+
+}
+// TImer, textarea auto selection or disabling auto text and disable text input when time is up
+const timingfunction = () => {
+    document.getElementById("textareas").select();
+    document.getElementById("innerdata").disabled = true;
+    document.getElementById("textareas").addEventListener('keydown', () => {
+        if (document.getElementById('times').value == 'NaN') {
+            document.getElementById('times').value = 0;
+        }
+    })
+    endTime = 60;
+    setInterval(() => {
+        if (document.getElementById('times').value == endTime) {
+            document.getElementById('times').value = endTime;
+            document.getElementById("textareas").disabled = true;
+        } else {
+            document.getElementById('times').value++;
+        }
+    }, 1000);
+}
+// Typing Speed Calculator
+const speedometer = () => {
+    setInterval(() => {
+        document.getElementById('textareas').addEventListener('keydown', () => {
+            if (document.getElementById('speed').value == 'Speed' || document.getElementById('speed').value == 'NaN') {
+                document.getElementById('speed').value = 0;
+            } else {
+                let arrtext = document.getElementById("textareas").value
+                noOfSpaces = arrtext.split(' ').length - 1;
+                document.getElementById('speed').value = noOfSpaces;
+            }
+        })
+    }, 1000);
+}
+
+// Typing Accuracy Calculator
+const accuracy = () => {
+    document.getElementById('textareas').addEventListener('keydown', () => {
+        if (document.getElementById('accuracy').value == "NaN" || document.getElementById('accuracy').value == "Accuracy") {
+            this.value = 0;
+        }
+    });
+    setInterval(() => {
+        w = 0;
+        z = 0;
+        for (let i = 0; i < document.getElementById("textareas").value.length; i++) {
+            if (document.getElementById("innerdata").value[i] == document.getElementById("textareas").value[i]) {
+                w++;
+                if (document.getElementById('accuracy').value == 100) {
+                    document.getElementById("textareas").style.color = 'green';
+                }
+            }
+            else if (document.getElementById("innerdata").value[i] != document.getElementById("textareas").value[i]) {
+                z++;
+                if (document.getElementById('accuracy').value < 100) {
+                    document.getElementById("textareas").style.color = 'red';
+                }
+
+            }
+        }
+        y = (w / (document.getElementById("textareas").value.length)) * 100;
+        document.getElementById('accuracy').value = y;
+    }, 100);
+}
+// It finds the error in the text by changing the color
+const errorDetector = () => {
+    document.getElementById('textareas').addEventListener('keypress', () => {
+        if (document.getElementById('accuracy').value == 100) {
+            document.getElementById("textareas").style.color = 'green';
+            // document.getElementById("innerdata").style.color = 'green';
+        } else {
+            document.getElementById("textareas").style.color = 'red';
+            // document.getElementById("innerdata").style.color = 'red';
+        }
+    })
+}
+
+const autoScroll = () => {
+    window.addEventListener('keydown', (event) => {
+        key = event.key
+        if (key == 'ArrowDown') {
+            document.getElementById('innerdata').scrollTo(0, 26);
+        } else if (key == 'ArrowUp') {
+            document.getElementById('innerdata').scrollTo(0, -26);
+        }
+    })
+}
+const endText = () => {
+    document.getElementById('textareas').addEventListener('keypress', () => {
+        if (document.getElementById('innerdata').value == document.getElementById('textareas').value) {
+            resetTexting();
+            document.getElementById('speed').value = noOfSpaces;
+            document.getElementById('textareas').value = "";
+        }
+    })
+
+}
+const printer = () => {
+    document.getElementById('print').addEventListener('click', () => {
+        // document.getElementById(`marginBottom${val}`).style.marginBottom = '154px';
+        document.getElementById('prints').style.display = 'none';
+        document.getElementById('webname').style.display = 'none';
+        document.getElementById('printNone').style.display = 'none';
+
+
+
+        setTimeout(() => {
+            window.print()
+        }, 10);
+        setTimeout(() => {
+            // document.getElementById(`marginBottom${val}`).style.marginBottom = '4px';
+            document.getElementById('prints').style.display = 'flex';
+            document.getElementById('webname').style.display = 'flex';
+            document.getElementById('printNone').style.display = 'flex';
+
+
+        }, 20);
+    })
+}
+// Connect whole code by using arrow Function
+
+const addData = () => {
+    texting = document.getElementById('textareas')
+    setTimeout(() => {
+        document.getElementById('yourAnswer').innerHTML += `
+        <nav class="name background">TypingTest: Practice-${score}</nav>
+        <div id="typingData" class="typingData flex">
+        <div class="singledata flex-col">
+        <label for="times">Timer</label>
+        <input type="button" value="${document.getElementById('times').value}">
+                </div>
+                <div class="singledata flex-col">
+                    <label for="speed">Speed</label>
+                    <input type="button" value="${document.getElementById("speed").value}">
+                    </div>
+                    <div class="singledata flex-col">
+                    <label for="accuracy">Accuracy</label>
+                    <input type="button" value="${document.getElementById("accuracy").value}">
+                </div>
+                </div>
+                <div class="flex flex-col" id="marginBottom">
+                <textarea class="user-selection dis" id="text${val}" cols="30" rows="16">${document.getElementById("innerdata").value}</textarea>
+                <textarea id="coloring${val}" class="dis" cols="30" rows="16">${document.getElementById("textareas").value}</textarea>
+                </div>`;
+        if (document.getElementById('accuracy').value == 100) {
+            document.getElementById(`coloring${val}`).style.color = 'green';
+        } else {
+            document.getElementById(`coloring${val}`).style.color = 'red';
+        }
+        document.getElementById(`text${val}`).disabled = true;
+        document.getElementById(`coloring${val}`).disabled = true;
+        document.getElementById('practiceScore').value = score;
+        score++;
+        val++;
+    }, 10);
+}
+// Reset button to reset it as, it reloading page but not reloads
+const ResetButton = () => {
+    document.getElementById('reset').addEventListener('click', () => {
+        addData();
+        // randomTextGenerator();
+        setTimeout(() => {
+            document.getElementById("textareas").disabled = false;
+            document.getElementById('times').value = 'NaN'
+            document.getElementById("textareas").value = ""
+            document.getElementById("accuracy").value = "NaN"
+            document.getElementById('speed').value = 'NaN'
+            document.getElementById("textareas").select();
+
+        }, 100);
+    })
+}
+ResetButton();
+const gameConnector = () => {
+    // endText();
+    errorDetector();
+    timingfunction();
+    speedometer();
+    accuracy();
+    autoScroll();
+    printer();
+    randomTextGenerator();
+}
+gameConnector();
+</script>
+
+</html>

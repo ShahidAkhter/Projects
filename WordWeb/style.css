@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+input{
+    margin: 1vmin 0.5vmin;
+    padding: 1vmin;
+    max-width: 200px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    /* margin-bottom: 8px; */
+    background: rgb(255, 255, 255);
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: myFont;
+    /* padding: 0; */
+    border: 1px solid black;
+}
+textarea{
+    margin: 4px;
+    border: 1px solid black;
+    width: 95vw;
+    height: 80vh;
+    padding: 4px;
+}
+#mainContent{
+    height: 90vmin;
+    width: 100vmin;
+    text-align: justify;
+    /* font-size: 16px; */
+    color: rgb(0, 0, 0);
+    background-color: white;
+    resize: none;
+    border: 2px solid black;
+    /* font-weight: bolder; */
+}
+.allButton{
+    width: 4vmin;
+    height: 4vmin;
+    margin: 4px;
+    background: white;
+    border: 1px solid black;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-size: 2vmin;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.flex-col{
+    flex-direction: column;
+}
+#bold{
+    font-weight: bold;
+}
+#italic{
+    font-style: italic;
+}
+#underline{
+    text-decoration: underline;
+}
+.bold{
+    font-weight: bold;
+}
+.italic{
+    font-style: italic;
+}
+.underline{
+    text-decoration: underline;
+}

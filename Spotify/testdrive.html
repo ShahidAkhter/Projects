@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOOGLE DRIVE MUSIC</title>
+</head>
+<style>
+    body {
+        height: 80vh;
+    }
+
+    #myProgressBar {
+        width: 100vmin;
+    }
+
+    button {
+        /* width: 20px; */
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 1000px) {
+        #myProgressBar {
+            width: 95vmin;
+            /* position: absolute;
+            bottom: 0; */
+            /* transform: rotate(-90deg); */
+        }
+    }
+    @media screen and (max-width: 148px) {
+        #myProgressBar {
+            width: 150px;
+            /* position: absolute;
+            bottom: 0; */
+            /* transform: rotate(-90deg); */
+        }
+    }
+</style>
+
+<body>
+    <!-- <audio src=""></audio> -->
+    <audio src="" id="song"></audio>
+    <button id="player">PLAY</button>
+    <button id="songLength">0/0</button>
+    <button id="time_backward">-5</button>
+    <button id="time_forward">+5</button>
+    <br>
+    <input type="range" name="range" id="myProgressBar" min="0" value="0" max="1000000000000">
+    <div class="vol">
+        <div class="names">Volume</div>
+        <input type="range" name="range" id="volumes" min="0" value="1000" max="1000">
+    </div>
+</body>
+<script>
+    song.addEventListener('timeupdate', () => {
+        // Update Seekbar
+        progress = parseInt((song.currentTime / song.duration) * 1000000000000);
+        myProgressBar.value = progress;
+    })
+    myProgressBar.addEventListener('change', () => {
+        song.currentTime = myProgressBar.value * song.duration / 1000000000000;
+    })
+    const songDuration = () => {
+        setTimeout(() => {
+            setInterval(() => {
+                songLength.innerText = Math.round(song.currentTime) + "/" + Math.round(song.duration) + "s";
+            }, 1000);
+        }, 10);
+    }
+    document.getElementById('player').addEventListener('click', () => {
+        // https://drive.google.com/uc?export=view&id=1a5yT0rPvZLcO41bgNR6K_WT7UTV5Nve_
+        let song = document.getElementById('song');
+        song.src = "https://drive.google.com/uc?export=view&id=1a5yT0rPvZLcO41bgNR6K_WT7UTV5Nve_";
+        songDuration();
+        if (song.paused || song.currentTime <= 0) {
+            song.play();
+        } else {
+            song.pause();
+        }
+        if (document.getElementById('player').innerText=="PLAY") {
+            document.getElementById('player').innerText="PAUSE";
+        }else{
+            document.getElementById('player').innerText="PLAY";
+        }
+    })
+    time = 5;
+    document.getElementById('time_backward').addEventListener('click', () => {
+        song.currentTime -= time;
+    });
+    document.getElementById('time_forward').addEventListener('click', () => {
+        song.currentTime += time;
+    });
+    volumes.addEventListener('change', () => {
+        song.volume = volumes.value / 1000;
+    })
+</script>
+
+</html>

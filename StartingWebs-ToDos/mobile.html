@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            font-family: 'Baloo Bhaijaan 2', cursive;
+        }
+
+        nav {
+            background: rgb(162, 81, 255);
+            font-size: 3vmin;
+            padding-left: 1vmin;
+            color: white;
+            margin-bottom: 1vmin;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #flexend {
+            flex-direction: row;
+        }
+
+        input {
+            margin-bottom: 4px;
+            border: 2px solid rgb(125, 12, 255);
+            border-radius: 4px;
+        }
+
+        button {
+            margin: 4px;
+            border: 2px solid rgb(125, 12, 255);
+            border-radius: 4px;
+            background: rgb(125, 12, 255);
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        input,
+        button {
+            padding: 0.5vmin;
+            width: 40vmin;
+        }
+
+        .ptBingo,
+        #startPlaying {
+            width: 20vmin;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            cursor: pointer;
+            margin: auto;
+            margin-bottom: 1vmin;
+        }
+
+        table tr th {
+            border: 4px solid rgb(125, 12, 255);
+            text-align: center;
+            /* background-color: rgb(110, 255, 110); */
+            padding: 2vmin;
+            height: 4vmin;
+            width: 4vmin;
+        }
+
+        table tr td {
+            border: 4px solid rgb(125, 12, 255);
+            text-align: center;
+            padding: 2vmin;
+        }
+
+        table tr td ul {
+            list-style: none;
+        }
+
+        table tr:hover {
+            background-color: rgb(185, 255, 255);
+        }
+
+        table tr th:hover {
+            background-color: rgb(0, 255, 255);
+        }
+
+        table tr td:hover {
+            background-color: rgb(0, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="name">Bingo</nav>
+    <div class="flex">
+        <input type="text" id="aval" placeholder="Columns">
+        <input type="text" id="bval" placeholder="Rows">
+        <button id="setval">AddTable</button>
+    </div>
+    <div class="flex" id="flexend">
+        <button id="startPlaying">Start</button>
+        <div id="Buttons" class="flex">
+            <button class="ptBingo" id="Scorebtn"><span class="innerData" id="score"></span></button>
+        </div>
+        <!-- <button id="reset">Reset</button> -->
+    </div>
+    <div id="gameBody">
+        <table id="maindos"></table>
+    </div>
+</body>
+<script>
+    // constants and variables
+    let maindos = document.getElementById('maindos');
+    let aval = parseInt(document.getElementById('aval').value);
+    let bval = parseInt(document.getElementById('bval').value);
+    let setaval = document.getElementById('setaval');
+    let score = 0;
+    let scoreBtn = document.getElementById('Scorebtn');
+    document.getElementById('flexend').style.display = 'none';
+
+    // Add Table,Number and Remove Number From the Table
+    // Add Table Function
+    const AddTable = () => {
+        let a = parseInt(document.getElementById('aval').value);
+        let b = parseInt(document.getElementById('bval').value);
+        let idBox = 0;
+        let idRow = 0;
+        for (let i = 0; i < b; i++) {
+            document.getElementById('maindos').innerHTML += `<tr id='main${idRow}' class='mains'></tr>`
+            for (let j = 0; j < a; j++) {
+                document.getElementById(`main${idRow}`).innerHTML += ` <th id="box${idBox}" class="addNum"><span class="boxtext"></span></th>`
+                idBox += 1;
+            }
+            idRow += 1;
+        }
+    }
+
+    // Add Number From Table Boxes Function
+    const AddNum = () => {
+        let Num = 1;
+        Array.from(document.getElementsByClassName("addNum")).forEach(element => {
+            let boxtext = element.querySelector('.boxtext');
+            element.addEventListener('click', () => {
+                if (boxtext.innerText === '') {
+                    boxtext.innerText = Num;
+                    Num++;
+                }
+            });
+        });
+    }
+
+    // Remove Number From Table Boxes Function
+    const RemoveNum = () => {
+        document.getElementById('startPlaying').addEventListener("click", () => {
+            Array.from(document.getElementsByClassName("addNum")).forEach(element => {
+                let boxtext = element.querySelector('.boxtext');
+                element.addEventListener('click', () => {
+                    if (boxtext.innerText) {
+                        boxtext.innerText = '';
+                        element.style.background = 'rgb(255 253 185)';
+                    }
+                });
+            });
+        });
+    }
+
+    // Scoring
+    const Scores = () => {
+        if (score === 0) {
+            document.getElementById('score').innerText = 'Score';
+        }
+        document.getElementById('Scorebtn').addEventListener("click", () => {
+            if (score !== parseInt((parseInt(document.getElementById('aval').value) + parseInt(document.getElementById('bval').value)) / 2)) {
+                score += 1;
+                document.getElementById('score').innerText = score;
+            }
+            if (score === parseInt((parseInt(document.getElementById('aval').value) + parseInt(document.getElementById('bval').value)) / 2)) {
+                document.getElementById('score').innerText = 'You Win';
+                score = score;
+            }
+        });
+    }
+
+    // Add some style displaying text during the Game
+    const Styles = () => {
+        document.getElementById('setval').addEventListener("click", () => {
+            document.getElementById('setval').style.display = 'none';
+            document.getElementById('aval').style.display = 'none';
+            document.getElementById('bval').style.display = 'none';
+            document.getElementById('flexend').style.display = 'flex';
+        });
+    }
+    Styles();
+
+    // Game Logic
+    document.getElementById('setval').addEventListener("click", () => {
+        AddTable();
+        AddNum();
+        RemoveNum();
+        Scores();
+    });
+</script>
+
+</html>

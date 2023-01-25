@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Generate Your Resume</title>
+</head>
+
+<body>
+    <nav class="flex bg-cyan-400 p-2 items-center justify-between text-white">
+        <ul class="flex bg-cyan-400 p-0 items-center">
+            <li class="p-2 text-2xl">GenerateResume</li>
+        </ul>
+        <!-- <ul class="flex bg-cyan-400 p-0 items-center justify-around">
+            <li class="p-2 text-xl">Home</li>
+            <li class="p-2 text-xl">Documentation</li>
+            <li class="p-2 text-xl">Contact</li>
+            <li class="p-2 text-xl">About</li>
+        </ul> -->
+    </nav>
+    <main class="flex" id="main">
+        <section class="w-80 p-2 h-screen sticky top-0 left-0 bg-sky-200 flex items-center flex-col">
+            <nav id="sect1nav" class="w-72 flex bg-cyan-400 p-2 items-center justify-center text-white">Profile</nav>
+            <div id="uploadData0" class=" flex items-center flex-col">
+                <input type="file" name="" id="inputFile0"
+                    class="p-4 block w-60 text-sm text-slate-500 file:mr-1 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100">
+
+                <!-- <input type="file" name="" id="inputFile1"
+                    class="p-4 block w-60 text-sm text-slate-500 file:mr-1 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"> -->
+
+                <div class="mx-4 my-1">
+                    <div>Phone Number</div>
+                    <input type="text" id="phnum" class="outline-none border-solid border-2 border-teal-900 p-1 w-60">
+                </div>
+                <div class="mx-4 my-1">
+                    <div>Email</div>
+                    <input type="text" id="email" class="outline-none border-solid border-2 border-teal-900 p-1 w-60">
+                </div>
+                <div class="mx-4 my-2">
+                    <div>Address</div>
+                    <textarea id="address" type="text" rows="8"
+                        class="outline-none border-solid border-2 border-teal-900 p-1 w-60 resize-none"></textarea>
+                </div>
+                <input type="button" value="Display" id="btn0"
+                    class="font-bold m-4 p-2 block bg-cyan-100 text-cyan-800 rounded-lg w-60">
+            </div>
+
+            <div id="uploadedData0" class="flex flex-col justify-center items-center text-center">
+                <div class="w-40 text-2xl my-0 mx-4 mt-1"><img class="w-40" src="" id="indiv0" alt=""></div>
+                <!-- <div class="w-40 h-24 text-2xl my-0 mx-4"><img class="w-40 h-20" src="" id="indiv1" alt=""></div> -->
+                <div class="text-xl my-0 mx-4"><span class="w-40 h-20" id="indiv2"></span></div>
+                <div class="text-xl my-0 mx-4"><span class="w-40 h-20" id="indiv3"></span></div>
+                <div class="text-xl my-0 mx-4"><span class="w-40 h-20" id="indiv14"></span></div>
+                <input type="button" value="Edit" id="edit0"
+                    class="font-bold m-4 p-2 block bg-cyan-100 text-cyan-800 rounded-lg w-60">
+            </div>
+            </div>
+        </section>
+        <section class="w-96 p-2">
+            <nav class="w-84 mx-4 flex bg-cyan-400 p-2 items-center justify-center text-white">Personal Details</nav>
+            <div id="uploadData1" class=" flex items-center flex-col">
+                <!-- <div class="mx-4 my-2"> -->
+                <!-- </div> -->
+                <div class="mx-4 my-2">
+                    <div>First Name</div>
+                    <input id="fname" type="text" class="outline-none border-solid border-2 border-teal-900 p-1 w-80">
+                </div>
+                <div class="mx-4 my-2">
+                    <div>Last Name</div>
+                    <input id="lname" type="text" class="outline-none border-solid border-2 border-teal-900 p-1 w-80">
+                </div>
+                <div class="mx-4 my-2">
+                    <div>Age</div>
+                    <input id="age" type="text" class="outline-none border-solid border-2 border-teal-900 p-1 w-80">
+                </div>
+
+                <div class="mx-4 my-2">
+                    <div>Father's First Name</div>
+                    <input id="ffname" type="text" class="outline-none border-solid border-2 border-teal-900 p-1 w-80">
+                </div>
+                <div class="mx-4 my-2">
+                    <div>Father's Last Name</div>
+                    <input id="flname" type="text" class="outline-none border-solid border-2 border-teal-900 p-1 w-80">
+                </div>
+                <div class="mx-4 my-2">
+                    <div>Mother's First Name</div>
+                    <input id="mfname" type="text" class="outline-none border-solid border-2 border-teal-900 p-1 w-80">
+                </div>
+                <div class="mx-4 my-2">
+                    <div>Mother's Last Name</div>
+                    <input id="mlname" type="text" class="outline-none border-solid border-2 border-teal-900 p-1 w-80">
+                </div>
+                <input type="button" value="Display" id="btn1"
+                    class="font-bold m-4 p-2 block bg-cyan-100 text-cyan-800 rounded-lg w-80">
+            </div>
+            </div>
+            <div id="uploadedData1" class="flex flex-col justify-center items-center">
+                <span id="Icon"
+                    class="flex items-center width justify-center text-7xl font-bold text-cyan-800 bg-cyan-100 m-4 rounded-full outline-none border-solid border-2 border-cyan-900 p-1 w-52 h-52 w-80"></span>
+                <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv10"></span></div>
+                <div class="text-xl my-0 mx-4"><span class="w-40 h-20" id="indiv11"></span></div>
+                <div class="text-xl my-0 mx-4"><span class="w-40 h-20" id="indiv12"></span></div>
+                <div class="text-xl my-0 mx-4"><span class="w-40 h-20" id="indiv13"></span></div>
+                <input type="button" value="Edit" id="edit1"
+                    class="font-bold m-4 p-2 block bg-cyan-100 text-cyan-800 rounded-lg w-60">
+            </div>
+        </section>
+        <section>
+            <section class="mx-0 p-2 flex items-center flex-col width justify-center">
+                <nav class="w-80 mx-0 flex bg-cyan-400 p-2 items-center justify-center text-white" id="width">Summary
+                </nav>
+                <div id="uploadData2" class=" flex items-center flex-col width justify-center">
+                    <div class="mx-4 my-2">
+                        <div>Summary</div>
+                        <textarea id="summary" type="text" rows="8"
+                            class="outline-none border-solid border-2 border-teal-900 p-1 resize-none"></textarea>
+                    </div>
+                    <div class="flex">
+                        <div class="mx-4 my-2">
+                            <div>School/Institute</div>
+                            <input id="institute" type="text"
+                                class="outline-none border-solid border-2 border-teal-900 p-1 width0">
+                        </div>
+                        <div class="mx-4 my-2">
+                            <div>Course</div>
+                            <input id="course" type="text"
+                                class="outline-none border-solid border-2 border-teal-900 p-1 width0">
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="mx-4 my-2">
+                            <div>Marks(In Percentage)</div>
+                            <input id="markspercent" type="text"
+                                class="outline-none border-solid border-2 border-teal-900 p-1 width0">
+                        </div>
+                        <div class="mx-4 my-2">
+                            <div>Time Period of the course</div>
+                            <input id="timeperiod" type="text"
+                                class="outline-none border-solid border-2 border-teal-900 p-1 width0">
+                        </div>
+                    </div>
+
+                    <div class="py-2">
+                        <div class="flex">
+                            <div class="mx-4 my-2">
+                                <div>School/Institute</div>
+                                <input id="institute1" type="text"
+                                    class="outline-none border-solid border-2 border-teal-900 p-1 width0">
+                            </div>
+                            <div class="mx-4 my-2">
+                                <div>Course</div>
+                                <input id="course1" type="text"
+                                    class="outline-none border-solid border-2 border-teal-900 p-1 width0">
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="mx-4 my-2">
+                                <div>Marks(In Percentage)</div>
+                                <input id="markspercent1" type="text"
+                                    class="outline-none border-solid border-2 border-teal-900 p-1 width0">
+                            </div>
+                            <div class="mx-4 my-2">
+                                <div>Time Period of the course</div>
+                                <input id="timeperiod1" type="text"
+                                    class="outline-none border-solid border-2 border-teal-900 p-1 width0">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="button" value="Display" id="btn2"
+                        class="font-bold m-4 p-2 block bg-cyan-100 text-cyan-800 rounded-lg w-80">
+                </div>
+
+                <div id="uploadedData2" class="flex flex-col justify-center items-center">
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv15"></span></div>
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv16"></span></div>
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv17"></span></div>
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv18"></span></div>
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv19"></span></div>
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv20"></span></div>
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv21"></span></div>
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv22"></span></div>
+                    <div class="text-2xl my-0 mx-4 mt-1"><span class="w-40 h-20" id="indiv23"></span></div>
+                    <input type="button" value="Edit" id="edit2"
+                        class="font-bold m-4 p-2 block bg-cyan-100 text-cyan-800 rounded-lg w-60">
+                </div>
+            </section>
+    </main>
+
+    <main id="main1"></main>
+</body>
+<script src="script.js"></script>
+</html>

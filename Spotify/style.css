@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Ceviche+One&display=swap');
+
+@font-face {
+    font-family: myFont;
+    src: url('../TouchTypingTest/fonts/BalooBhaijaan2-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-weight: bolder;
+    font-family: 'Ceviche One', cursive;
+    font-family: 'Baloo 2', cursive;
+    font-family: myFont;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: rgb(201, 255, 131);
+    overflow: hidden;
+    cursor: default;
+}
+
+img {
+    pointer-events: none;
+}
+
+nav #navbar {
+    display: flex;
+    position: sticky;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo img {
+    height: 5.5vmin;
+    margin: 1vmin;
+    border: 0.11vmin solid black;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+#webName {
+    font-size: 4vmin;
+}
+
+nav {
+    display: flex;
+    position: sticky;
+    align-items: center;
+    text-transform: uppercase;
+    top: 0;
+    flex-wrap: wrap;
+    width: 100%;
+    border-bottom: 0.11vmin solid black;
+    overflow: hidden;
+    background-color: rgb(89, 211, 64);
+}
+
+nav::before {
+    content: "";
+    background-color: rgb(89, 211, 64);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+nav #navbar li a {
+    text-decoration: none;
+    padding: 3vmin;
+    color: rgb(255, 255, 255);
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 75.5vmin;
+    width: 100vmin;
+    background: url(logo.png);
+    font-size: 2.5vmin;
+    margin: 2vmin;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 74.5vmin;
+}
+
+#container .songItem img {
+    height: 4.4vmin;
+    width: 4.4vmin;
+    margin-left: 0.5vmin;
+}
+
+#container .songItem .songName {
+    margin-left: 2vmin;
+    width: 75vmin;
+}
+
+#container .songItem .songlistplay .timestamp {
+    margin-right: 2vmin;
+}
+
+#container .songItem .songlistplay .timestamp i {
+    font-size: 3vmin;
+    margin: 1vmin 0;
+    cursor: pointer;
+}
+
+#container .songItem {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.2vmin solid black;
+    opacity: 0.9;
+}
+
+.bottom {
+    position: sticky;
+    bottom: 0;
+    height: 14vmin;
+    background-color: rgb(89, 211, 64);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 0.5vmin solid black;
+    /* border-top: 0.11vmin solid black; */
+}
+
+.icons {
+    /* position: relative; */
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.98vmin 0 0 0;
+
+}
+
+.icons i {
+    cursor: pointer;
+    font-size: 4.5vmin;
+    margin: 0 1vmin;
+}
+
+#songLength,
+#length {
+    margin: 0;
+}
+
+#myProgressBar {
+    /* -webkit-appearance: none; */
+    width: 100vmin;
+    /* height: 1.1vmin; */
+    border-radius: 0.8vmin;
+    /* background: #0051ff; */
+    cursor: pointer;
+    outline: none;
+    /* opacity: 0.8; */
+    /* -webkit-transition: .2s; */
+    /* transition: opacity .2s; */
+}
+
+/* 
+#myProgressBar:hover {
+    opacity: 1;
+}
+
+#myProgressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2.4vmin;
+    height: 2.4vmin;
+    border-radius: 2vmin;
+    background: #0051ff;
+    cursor: pointer;
+}
+
+#myProgressBar::-moz-range-thumb {
+    width: 2.4vmin;
+    height: 2.4vmin;
+    border-radius: 2vmin;
+    background: #0051ff;
+    cursor: pointer;
+} */
+
+#player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#flex #banner .sitems {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 4vmin;
+}
+
+#flex #banner .sitems #imgbanner img {
+    height: 45vmin;
+    width: 45vmin;
+    border: 0.5vmin solid black;
+    /* border-radius: 1vmin;    */
+}
+
+.timeDuration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1vmin;
+}
+
+
+.nav-side {
+    background: rgb(0 255 149);
+    font-size: 20px;
+    padding: 2px 4px;
+    border: 1px solid black;
+    font-weight: bold;
+    margin: 4px;
+}
+
+.displayYesNo {
+    padding: 0 6px;
+}
+.marginnav {
+    margin: 0 0 0 1vmin;
+}
+
+#searchbutton,
+#displayer,
+#slideNo,
+.nav-side {
+    background: rgb(0, 255, 149);
+}
+.nav-sidebar {
+    position: sticky;
+    width: 100vw;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1vmin;
+    padding: 5px;
+    padding-left: 2vmin;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: myFont;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    background: rgb(121, 255, 94);
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+.fontSize{
+    font-size: 5vmin;
+}
+.fontSize1{
+    font-size: 4vmin;
+}
+
+.time{
+    width: 6vmin;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>TypingTest-Test Your Typing Speed:) By Shahid Akhter</title>
+    <!-- <link rel="shortcut icon" href="logo.PNG" type="image/x-icon"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="scroll.css">
+</head>
+
+<body>
+    <nav class="name background" id="webname">TypingTest</nav>
+    <div class="website" id="prints">
+        <!-- <div id="displayYes"> -->
+            <div id="typingData" class="typingData flex">
+                <div class="singledata flex-col">
+                    <label for="times">Timer</label>
+                    <input type="button" id="times" value="NaN">
+                </div>
+                <div class="singledata flex-col">
+                    <label for="speed">Speed</label>
+                    <input type="button" id="speed" value="NaN">
+                </div>
+                <div class="singledata flex-col">
+                    <label for="accuracy">Accuracy</label>
+                    <input type="button" id="accuracy" value="NaN">
+                </div>
+            </div>
+            <div id="autotext" class="text user-selection">
+                <div id="loader" class="font"></div>
+                <div id="innerdata"></div>
+                <!-- <textarea id="innerdata" class="user-selection" cols="30" rows="16"></textarea> -->
+            </div>
+            <div id="entertext wid-100" class="text">
+                <textarea id="textareas" cols="30" rows="4"></textarea>
+            </div>
+            <!-- </div> -->
+            <div class="extraimportantbtns">
+                <div class="singledata flex-col">
+                    <!-- <label for="practiceScore">Practice-Score:</label> -->
+                    <input type="button" id="practiceScore" value="Practice-Score">
+                </div>
+                <div class="singledata flex-col" id="display1">
+                    <!-- <label for="reset">Reset:</label> -->
+                <input type="button" id="reset" class="cursor-pointer" value="Reset">
+            </div>
+            <div class="singledata flex-col" id="display2">
+                <!-- <label for="reset">Reset:</label> -->
+                <input type="button" id="print" class="cursor-pointer" value="Print">
+            </div>
+        </div>
+    </div>
+    <div class="name background center wid-100 mar-7 mar-7-Bottom" id="printNone">My Practices</div>
+    <!-- press enter after completing auto text into enter text -->
+    <div class="flex flex-col">
+        <div id="yourAnswer" class="answers">
+            <!-- <span class="innerdata flex" id="span"></span> -->
+            <!-- <span class="innerdata flex">a+b=yourAnswer/rightAnswer</span> --></div>
+    </div>
+    <div class="name background center mar-7 bottomPart" id="copyrightFooter"><label for="" class=" footer">Copyright&copy; reserved TypingTest/Owner/ShahidAkhter</label></div>
+    <input type="button" id="moveToTop" class="flex" value="Top">
+    <!-- <div id="alertBox">
+        <div id="alertbar">
+            <div id="alertInfo">You can't Reset if the typed text in your textarea is not available.</div>
+            <input type="button" id="alertButton" value="OK">
+        </div>
+    </div> -->
+</body>
+<script src="arr.js"></script>
+<script src="script.js"></script>
+
+</html>

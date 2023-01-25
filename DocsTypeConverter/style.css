@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.images{
+    margin: 2px 0;
+    height: 90vmin;
+}
