@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,, user-scalable=no">
+    <title>MathematicsQ/A</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+
+        @font-face {
+            font-family: myFont;
+            src: url(../TouchTypingTest/fonts/BalooBhaijaan2-Regular.ttf);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: rgb(201, 255, 131);
+            overflow: hidden;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            color: rgb(0, 0, 0);
+            background: rgb(89, 211, 64);
+            margin-bottom: 1vmin;
+            padding: 5px;
+            padding-left: 2vmin;
+            font-family: myFont;
+            font-weight: bold;
+            border-bottom: 1px solid black;
+        }
+
+        .website {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #question,
+        #answer,
+        input {
+            margin: 4px;
+            border: 1px solid black;
+            width: 95vmin;
+            padding: 4px;
+            max-width: 200px;
+            color: rgb(0, 0, 0);
+            font-size: 24px;
+            margin-bottom: 8px;
+            background: rgb(255, 255, 255);
+            font-family: myFont;
+        }
+
+        textarea {
+            padding: 4px;
+        }
+
+        input[type="button"] {
+            background: rgb(89, 211, 64);
+        }
+
+        #question,
+        #answer {
+            max-width: 95vmin;
+            resize: none;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .margin {
+            margin: 1vmin;
+        }
+
+        .innerdata {
+            font-family: 'Baloo Bhaijaan 2', cursive;
+            font-size: 24px;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        #yourAnswer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 3.5vmin;
+            background: rgb(124 255 140);
+            border: 1px solid black;
+            width: 90vmin;
+            height: 60vmin;
+            scroll-behavior: smooth;
+            overflow: auto;
+
+        }
+
+        @media screen and (max-width: 500px) {
+            .innerdata {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="name background">MathematicsQ/A</nav>
+    <div id="website" class="web flex">
+        <div id="text" class="flex flex-col">
+            <div class="question">
+                <!-- Hello World -->
+                <textarea id="question" cols="30" rows="1"></textarea>
+            </div>
+            <div class="answer">
+                <textarea id="answer" cols="30" rows="1"></textarea>
+            </div>
+            <div class="flex">
+                <div class="timer margin">
+                    <input type="button" id="time" value="NaN">
+                </div>
+                <div class="findQ margin">
+                    <input type="button" id="qBtn" value="GetQuestion">
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div id="yourAnswer" class="">
+                    <span class="innerdata flex" id="span"></span>
+                    <!-- <span class="innerdata flex">a+b=yourAnswer/rightAnswer</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <script src="script.js"></script> -->
+<script>
+    console.log('hello world')
+    document.getElementById("question").disabled = true;
+    const timing = () => {
+        document.getElementById("qBtn").addEventListener('click', () => {
+            if (document.getElementById('time').value == 'NaN') {
+                document.getElementById('time').value = 0;
+            }
+        })
+        endTime = 60;
+        setInterval(() => {
+            if (document.getElementById('time').value == endTime) {
+                document.getElementById('time').value = endTime;
+                document.getElementById("answer").disabled = true;
+            } else {
+                document.getElementById('time').value++;
+            }
+        }, 1000);
+    }
+    timing();
+    const randomOperator = () => {
+        textGenerator = [
+            '+',
+            '-',
+            '*',
+            '/',
+        ]
+        d = 0;
+        e = textGenerator.length - 1;
+        f = Math.round(e - (e - d) * Math.random());
+        arr = textGenerator[f];
+    }
+    randomOperator();
+
+    randomNumGenAns = () => {
+        a = 0;
+        b = 1000;
+        c = Math.round(b - (b - a) * Math.random());
+        g = Math.round(b - (b - a) * Math.random());
+        document.getElementById("qBtn").addEventListener('click', () => {
+            document.getElementById('question').innerText = `${c} ${arr} ${g}`;
+            evaluation = eval(c + arr + g);
+            document.getElementById("qBtn").style.display = 'none'
+            document.getElementById("answer").select();
+            setTimeout(() => {
+                document.getElementById('question').innerText = `${c} ${arr} ${g}= ${evaluation}`;
+            }, 60000);
+        })
+    }
+    randomNumGenAns();
+    const questionChecker = () => {
+        let val = 0;
+        document.getElementById('answer').addEventListener('keydown', (event) => {
+            if (event.key == "Enter") {
+                document.getElementById('yourAnswer').scrollTo(0, 50000);
+                if (parseFloat(document.getElementById('answer').value) != parseFloat(evaluation)) {
+                    // document.getElementById('answer').value=``;
+                    document.getElementById('yourAnswer').innerHTML += `<span class="innerdata flex flex-wrap" id="span${val}">${c} ${arr} ${g}=${document.getElementById('answer').value}/${evaluation}</span>`
+                    document.getElementById(`span${val}`).style.color = 'red';
+                    val += 1;
+                } else {
+                    // document.getElementById('answer').value=``;
+                    document.getElementById('yourAnswer').innerHTML += `<span class="innerdata flex flex-wrap">${c} ${arr} ${g}=${document.getElementById('answer').value}/${evaluation}</span>`
+                }
+                randomOperator();
+                a = 0;
+                b = 1000;
+                c = Math.round(b - (b - a) * Math.random());
+                g = Math.round(b - (b - a) * Math.random());
+                document.getElementById('question').innerText = `${c} ${arr} ${g}`;
+                evaluation = eval(c + arr + g);
+                document.getElementById("answer").select();
+                setTimeout(() => {
+                    document.getElementById('question').innerText = `${c} ${arr} ${g}= ${evaluation}`;
+                }, 60000);
+            }
+        })
+    }
+    questionChecker();
+</script>
+
+</html>

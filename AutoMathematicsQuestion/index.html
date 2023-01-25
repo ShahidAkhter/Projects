@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathematicsQ/A</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="name background">MathematicsQ/A</nav>
+    <div id="website" class="web flex">
+        <div id="text" class="flex flex-col">
+            <div class="question">
+                <!-- Hello World -->
+                <textarea id="question" cols="30" rows="1"></textarea>
+            </div>
+            <div class="answer">
+                <textarea id="answer" cols="30" rows="1"></textarea>
+            </div>
+            <div class="flex">
+                <div class="timer margin">
+                    <input type="button" id="time" value="NaN">
+                </div>
+                <div class="findQ margin">
+                    <input type="button" id="qBtn" value="GetQuestion">
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div id="yourAnswer" class="">
+                    <span class="innerdata flex" id="span"></span>
+                    <!-- <span class="innerdata flex">a+b=yourAnswer/rightAnswer</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

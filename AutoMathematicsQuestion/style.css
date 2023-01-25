@@ -1,0 +1,84 @@
+@font-face {
+    font-family: myFont;
+    src: url(../TouchTypingTest/fonts/BalooBhaijaan2-Regular.ttf);
+  }
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: sans-serif;
+}
+body{
+    background-color: rgb(201, 255, 131);
+    overflow: hidden;
+}
+nav{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    background: rgb(89, 211, 64);
+    margin-bottom: 1vmin;
+    padding: 5px;
+    padding-left: 2vmin;
+    font-family: myFont;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+.website{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#question, #answer, input{
+    margin: 4px;
+    border: 1px solid black;
+    width: 95vmin;
+    padding: 4px;
+    max-width: 200px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    margin-bottom: 8px;
+    background: rgb(255, 255, 255);
+    font-family: myFont;
+}
+textarea{
+    padding: 4px;
+}
+input[type="button"]{
+    background: rgb(89, 211, 64);
+}
+#question, #answer{
+    max-width: 95vmin;
+    resize: none;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.flex-col{
+    flex-direction: column;
+}
+.margin{
+    margin: 1vmin;
+}
+.innerdata{
+    font-family: myFont;
+    font-size: 24px;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+#yourAnswer{
+    display: flex;
+    flex-direction: column;
+    background: rgb(124 255 140);
+    border: 1px solid black;
+    width: 95vmin;
+    height: 60vmin;
+    scroll-behavior: smooth;
+    overflow: auto;
+    
+}
