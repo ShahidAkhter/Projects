@@ -1,10 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     outline: 0;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.text{
+
+.text {
     height: 40vmin;
     font-size: 100px;
     text-align: center;
@@ -12,15 +13,17 @@
     background: rgb(145, 255, 154);
     color: rgb(17, 0, 255);
 }
-.buttonsContainer{
+
+.buttonsContainer {
     height: 50vmin;
 }
-.buttons{
+
+.buttons {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50vmin;
-    width: 100px;
+    width: 90px;
     font-size: 100px;
     border: 2px solid rgb(98, 0, 255);
     color: rgb(255, 0, 0);
@@ -28,19 +31,22 @@
     margin: 1px;
     cursor: default;
 }
-.buttonDesc{
+
+.buttonDesc {
     height: 5vmin;
     font-size: 20px;
     font-weight: bolder;
     background: rgb(145, 255, 154);
 }
 
-.flex{
+.flex {
     display: flex;
 }
-.alignItemsCenter{
+
+.alignItemsCenter {
     align-items: center;
 }
-.justifyContentCenter{
+
+.justifyContentCenter {
     justify-content: center;
 }
