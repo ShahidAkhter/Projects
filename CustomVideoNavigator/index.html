@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Navigation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="containVideo">
+        <div class="videoContainer">
+            <div class="videoContant">
+                <video id="video" class="myVideo"></video>
+                <button id="Big-Play-Pause">
+                    <img src="assets/img/circle-play-regular.svg" alt="">
+                </button>
+                <div class="NavigationVideo" id="NavigationVideoID">
+                    <div class="wholeSeek">
+                        <div class="flex alignItem justifyContent seekBtn">
+                            <span class="slider" id="sliderID"></span>
+                        </div>
+                        <div class="seekBar" id="seekBarID">
+                            <div class="seek" id="seekTime"></div>
+                        </div>
+                    </div>
+                    <div class="buttons btn flex alignItem justifyContent">
+                        <div id="backward5s" class="btn-items px-1"><img src="assets/img/angles-left-solid.svg" alt="">
+                        </div>
+                        <div id="" class="btn-items px-1"><img src="assets/img/backward-fast-solid.svg" alt=""></div>
+                        <div id="play-pause" class="btn-items px-1"><img src="assets\img\play-solid.svg" alt=""></div>
+                        <div id="" class="btn-items px-1"><img src="assets/img/forward-fast-solid.svg" alt=""></div>
+                        <div id="forward5s" class="btn-items px-1"><img src="assets/img/angles-right-solid.svg" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="blurEffect"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
