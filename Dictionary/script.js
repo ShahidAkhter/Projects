@@ -26,7 +26,7 @@ document.getElementById('api1').addEventListener('click', () => {
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '1f6907634fmsh88047855277c4a9p100572jsn39e4627349ec',
+        'X-RapidAPI-Key': 'API_KEY',
         'X-RapidAPI-Host': 'dictionary-by-api-ninjas.p.rapidapi.com'
     }
 };
@@ -38,7 +38,7 @@ const options = {
 const options0 = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '1f6907634fmsh88047855277c4a9p100572jsn39e4627349ec',
+        'X-RapidAPI-Key': 'API_KEY',
         'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
     }
 };

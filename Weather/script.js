@@ -12,7 +12,7 @@ let weatherLocation = document.getElementById('weatherLocation')
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '1f6907634fmsh88047855277c4a9p100572jsn39e4627349ec',
+		'X-RapidAPI-Key': 'API_KEY',
 		'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
 	}
 };
