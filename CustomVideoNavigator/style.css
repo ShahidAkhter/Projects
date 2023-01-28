@@ -35,10 +35,6 @@
     width: 80px;
     height: 80px;
 }
-#Big-Play-Pause:hover img{
-    width: 100px;
-    height: 100px;
-}
 .NavigationVideo{
     position: absolute;
     bottom: 0;
