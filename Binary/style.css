@@ -30,6 +30,7 @@
     width: 90px;
     font-size: 100px;
     border: 2px solid rgb(98, 0, 255);
+    border-radius: 5px;
     color: rgb(255, 0, 0);
     background: rgb(90, 203, 255);
     margin: 1px;
@@ -43,6 +44,13 @@
     background: rgb(145, 255, 154);
 }
 
+.buttonsDescContainer{
+    background: rgb(0, 255, 221);
+    border: 2px solid rgb(98, 0, 255);
+    border-radius: 10px;
+    margin: 4px;
+    padding: 8px 4px;
+}
 .flex {
     display: flex;
 }
