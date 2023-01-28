@@ -130,42 +130,7 @@ document.getElementById('video').addEventListener('mouseleave', () => {
         document.getElementById('NavigationVideoID').style.opacity = 0
     }
 })
-document.getElementById('video').addEventListener('mouseenter', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '100px';
-    document.querySelector('#Big-Play-Pause img').style.width = '100px';
-})
-document.getElementById('video').addEventListener('mouseover', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '100px';
-    document.querySelector('#Big-Play-Pause img').style.width = '100px';
-})
-document.getElementById('video').addEventListener('mouseleave', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '80px';
-    document.querySelector('#Big-Play-Pause img').style.width = '80px';
-})
-document.getElementById('Big-Play-Pause').addEventListener('mouseenter', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '100px';
-    document.querySelector('#Big-Play-Pause img').style.width = '100px';
-})
-document.getElementById('Big-Play-Pause').addEventListener('mouseover', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '100px';
-    document.querySelector('#Big-Play-Pause img').style.width = '100px';
-})
-document.getElementById('Big-Play-Pause').addEventListener('mouseleave', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '80px';
-    document.querySelector('#Big-Play-Pause img').style.width = '80px';
-})
-document.getElementById('NavigationVideoID').addEventListener('mouseenter', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '100px';
-    document.querySelector('#Big-Play-Pause img').style.width = '100px';
-})
-document.getElementById('NavigationVideoID').addEventListener('mouseover', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '100px';
-    document.querySelector('#Big-Play-Pause img').style.width = '100px';
-})
-document.getElementById('NavigationVideoID').addEventListener('mouseleave', () => {
-    document.querySelector('#Big-Play-Pause img').style.height = '80px';
-    document.querySelector('#Big-Play-Pause img').style.width = '80px';
-})
+
 document.getElementById('Big-Play-Pause').addEventListener('mouseenter', () => {
     // document.getElementById('NavigationVideoID').style.opacity = 1
     if (document.getElementById('NavigationVideoID').style.opacity == 0) {
