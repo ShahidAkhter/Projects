@@ -1,13 +1,15 @@
 number = 0;
-arrNum = [1 / 256, 1 / 128, 1 / 64, 1 / 32, 1 / 16, 1 / 8, 1 / 4, 1 / 2, 1, 2, 4, 8, 16, 32, 64, 128,]
-arrbuttonkeys = ["a", "s", "d", "f", "j", "k", "l", ";", "q", "w", "e", "r", "u", "i", "o", "p"]
-// n=prompt("Enter the Number: ")
-let myHTML=(n)=>{
+// arrNum = [1 / 256, 1 / 128, 1 / 64, 1 / 32, 1 / 16, 1 / 8, 1 / 4, 1 / 2, 1, 2, 4, 8, 16, 32, 64, 128,]
+arrNum = []
+arrbuttonkeys = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
+beforeDecimal = Number.parseInt(prompt("Enter the Number: "))
+afterDecimal = Number.parseInt(prompt("Enter the Number: "))
+let myHTML = (n) => {
     html = ""
-    html0=""
+    html0 = ""
     for (let i = 0; i < n; i++) {
         // const element = arrbuttonkeys[i];
-        if (arrNum[i] >= 1) {
+        if (i >= beforeDecimal) {
             html0 = `<div class="buttons buttonDesc" id="buttonDesc${i}">.${arrbuttonkeys[i]}</div>`;
         } else {
             html0 = `<div class="buttons buttonDesc" id="buttonDesc${i}">${arrbuttonkeys[i]}</div>`;
@@ -22,11 +24,11 @@ let myHTML=(n)=>{
         </div>`;
     }
     document.getElementById('allButtons').innerHTML = html;
-    html="";
-    html0="";
+    html = "";
+    html0 = "";
     return true;
 }
-myHTML(arrbuttonkeys.length);
+
 let ChangeText = (container, key, val) => {
     document.body.addEventListener("keydown", (event) => {
         if (event.key == key) {
@@ -57,8 +59,28 @@ let Calculations = (container, val) => {
     }
     return number;
 }
-
-for (let i = 0; i < arrNum.length; i++) {
+myHTML(beforeDecimal + afterDecimal); // 2 === 4
+// num = 1;
+Num = "1";
+for (let i = 0; i < beforeDecimal; i++) {
+    Num+="*2"
+} // arr=[1,2]
+// console.log(arrNum)
+// 1, 2
+// console.log(Num)
+Num=Number.parseInt(eval(Num));
+for (let i = 0; i < beforeDecimal; i++) {
     // const element = arrNum[i];
-    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], arrNum[arrNum.length - (i + 1)]);
+    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], Num/2);
+    Num=Num/2;
 }
+// console.log(Num)
+// 2, 4 === 2, 3 
+// 1, 2 === 1/(1), 1/(2)
+// 2
+for (let i = beforeDecimal; i < (beforeDecimal + afterDecimal); i++) {
+    // const element = n[i];
+    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], 1 / (Num*2));
+    Num=Num*2;
+}
+// console.log(Num)
