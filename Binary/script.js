@@ -1,8 +1,8 @@
 number = 0;
 // arrNum = [1 / 256, 1 / 128, 1 / 64, 1 / 32, 1 / 16, 1 / 8, 1 / 4, 1 / 2, 1, 2, 4, 8, 16, 32, 64, 128,]
 arrbuttonkeys = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
-beforeDecimal = Number.parseInt(prompt("Enter the Number: "))
-afterDecimal = Number.parseInt(prompt("Enter the Number: "))
+beforeDecimal = Number.parseInt(prompt("Enter the level of Number you want before decimal point: "))
+afterDecimal = Number.parseInt(prompt("Enter the level of Number you want after decimal point"))
 let myHTML = (n) => {
     html = ""
     html0 = ""
