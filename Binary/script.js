@@ -1,8 +1,14 @@
+// Variables and Constants
 number = 0;
-// arrNum = [1 / 256, 1 / 128, 1 / 64, 1 / 32, 1 / 16, 1 / 8, 1 / 4, 1 / 2, 1, 2, 4, 8, 16, 32, 64, 128,]
 arrbuttonkeys = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
+
+// Varibles to Get Input from the user
 beforeDecimal = Number.parseInt(prompt("Enter the level of Number you want before decimal point: "))
 afterDecimal = Number.parseInt(prompt("Enter the level of Number you want after decimal point"))
+
+
+// Functions
+// Adding HTML Using JS Dynamically
 let myHTML = (n) => {
     html = ""
     html0 = ""
@@ -28,6 +34,7 @@ let myHTML = (n) => {
     return true;
 }
 
+// Used to get container or element in the HTML body which by getting it do some work related to that particular element or container
 let ChangeText = (container, key, val) => {
     document.body.addEventListener("keydown", (event) => {
         if (event.key == key) {
@@ -38,6 +45,8 @@ let ChangeText = (container, key, val) => {
         switchChanger(container, val)
     })
 }
+
+// Changing Switch according to the situation (if 0?1:0)
 let switchChanger = (container, val) => {
     if (container.innerText == '0') {
         container.innerText = "1";
@@ -49,6 +58,8 @@ let switchChanger = (container, val) => {
     Calculations(container, val);
     document.getElementById('textID').innerText = number
 }
+
+// Doing Calculations accourding when Switch will ON(1 in the box)
 let Calculations = (container, val) => {
     if (container.innerText === "1") {
         number = number + val;
@@ -58,28 +69,20 @@ let Calculations = (container, val) => {
     }
     return number;
 }
-myHTML(beforeDecimal + afterDecimal); // 2 === 4
-// num = 1;
-Num = "1";
+
+
+// Running Functions and done some work
+myHTML(beforeDecimal + afterDecimal); // 2+2 === 4
+Num = 1;
 for (let i = 0; i < beforeDecimal; i++) {
-    Num+="*2"
-} // arr=[1,2]
-// console.log(arrNum)
-// 1, 2
-// console.log(Num)
-Num=Number.parseInt(eval(Num));
-for (let i = 0; i < beforeDecimal; i++) {
-    // const element = arrNum[i];
-    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], Num/2);
-    Num=Num/2;
+    Num = Num * 2 // (1*2, 2*2) === 4
 }
 // console.log(Num)
-// 2, 4 === 2, 3 
-// 1, 2 === 1/(1), 1/(2)
-// 2
+for (let i = 0; i < beforeDecimal; i++) {
+    Num = Num / 2; // (4/2) === 2, (2/2) === 1
+    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], Num);
+}
 for (let i = beforeDecimal; i < (beforeDecimal + afterDecimal); i++) {
-    // const element = n[i];
-    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], 1 / (Num*2));
-    Num=Num*2;
+    Num = Num * 2; // (1*2) === 2, (2*2) === 4
+    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], (1 / Num));
 }
-// console.log(Num)

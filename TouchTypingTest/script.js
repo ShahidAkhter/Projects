@@ -355,18 +355,18 @@ const addData = async () => {
             document.getElementById("loader").innerHTML = "Loading...";
             gkr=await addData();
             document.getElementById("loader").innerHTML = "";
-        }
-        // document.getElementById('innerdata').innerHTML="";
-        setTimeout(() => {
-            // resetTexting();
+
             document.getElementById("textareas").disabled = false;
-            document.getElementById("textareas").value = ""
             document.getElementById('times').value = 'NaN'
             document.getElementById("accuracy").value = "NaN"
             document.getElementById('speed').value = 'NaN'
-            document.getElementById("textareas").value="";
+            document.getElementById("textareas").value = ""
             document.getElementById("textareas").select();
-        }, 4000);
+        }
+        // document.getElementById('innerdata').innerHTML="";
+        // setTimeout(() => {
+            // resetTexting();
+        // }, 4000);
     })
 // }
 const scrollToTopButton = () => {
