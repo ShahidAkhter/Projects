@@ -28,9 +28,6 @@ let myHTML = (n) => {
         <div class="buttons" id="button${i}">0</div>
         </div>
         </div>`;
-        document.getElementById(`buttonDesc${i}`).style.width = 90 / (beforeDecimal + afterDecimal) + "vw"
-        document.getElementById(`button${i}`).style.width = 90 / (beforeDecimal + afterDecimal) + "vw"
-        // document.getElementById(`button${i}`).style.fontSize = (beforeDecimal + afterDecimal) + "vw"
     }
     html = "";
     // console.log(document.getElementById("allButtons").innerHTML)
