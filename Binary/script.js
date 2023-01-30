@@ -2,6 +2,7 @@
 number = 0;
 arrbuttonkeys = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
 
+
 // Varibles to Get Input from the user
 beforeDecimal = Number.parseInt(prompt("Enter the level of Number you want before decimal point: "))
 afterDecimal = Number.parseInt(prompt("Enter the level of Number you want after decimal point"))
@@ -29,6 +30,9 @@ let myHTML = (n) => {
         </div>`;
     }
     document.getElementById('allButtons').innerHTML = html;
+    if (document.getElementById("allButtons").innerHTML!=="") {
+        document.getElementById("allButtons").style.opacity="1";
+    }
     html = "";
     html0 = "";
     return true;

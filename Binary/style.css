@@ -8,6 +8,7 @@
 #allButtons{
     width: fit-content;
     margin: 4px auto;
+    opacity: 0;
 }
 .text {
     height: 40vmin;
