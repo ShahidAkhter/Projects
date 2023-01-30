@@ -78,15 +78,12 @@ let Calculations = (container, val) => {
 // Running Functions and done some work
 myHTML(beforeDecimal + afterDecimal); // 2+2 === 4
 Num = 1;
-for (let i = 0; i < beforeDecimal; i++) {
-    Num = Num * 2 // (1*2, 2*2) === 4
+for (let i = beforeDecimal; i < (beforeDecimal + afterDecimal); i++) {
+    Num = Num * 2; // (1*2) === 2, (2*2) === 4
+    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], (1 / Num));
 }
 // console.log(Num)
 for (let i = 0; i < beforeDecimal; i++) {
     Num = Num / 2; // (4/2) === 2, (2/2) === 1
     ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], Num);
-}
-for (let i = beforeDecimal; i < (beforeDecimal + afterDecimal); i++) {
-    Num = Num * 2; // (1*2) === 2, (2*2) === 4
-    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], (1 / Num));
 }
