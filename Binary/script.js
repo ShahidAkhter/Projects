@@ -82,6 +82,9 @@ for (let i = beforeDecimal; i < (beforeDecimal + afterDecimal); i++) {
     Num = Num * 2; // (1*2) === 2, (2*2) === 4
     ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], (1 / Num));
 }
+if (beforeDecimal!==afterDecimal) {
+    Num=Math.pow(2,beforeDecimal)
+}
 // console.log(Num)
 for (let i = 0; i < beforeDecimal; i++) {
     Num = Num / 2; // (4/2) === 2, (2/2) === 1
