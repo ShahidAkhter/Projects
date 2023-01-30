@@ -12,29 +12,30 @@ afterDecimal = Number.parseInt(prompt("Enter the level of Number you want after 
 // Adding HTML Using JS Dynamically
 let myHTML = (n) => {
     html = ""
-    html0 = ""
+    document.getElementById('allButtons').innerHTML="";
     for (let i = 0; i < n; i++) {
         // const element = arrbuttonkeys[i];
         if (i >= beforeDecimal) {
-            html0 = `<div class="buttons buttonDesc" id="buttonDesc${i}">.${arrbuttonkeys[i]}</div>`;
+            html = `<div class="buttons buttonDesc" id="buttonDesc${i}">.${arrbuttonkeys[i]}</div>`;
         } else {
-            html0 = `<div class="buttons buttonDesc" id="buttonDesc${i}">${arrbuttonkeys[i]}</div>`;
+            html = `<div class="buttons buttonDesc" id="buttonDesc${i}">${arrbuttonkeys[i]}</div>`;
         }
-        html += `<div class="buttonContainsTwoButtons flex alignItemsCenter justifyContentCenter flex-col" id="buttonContains${i}">
+        document.getElementById('allButtons').innerHTML += `<div class="buttonContainsTwoButtons flex alignItemsCenter justifyContentCenter flex-col" id="buttonContains${i}">
         <div class="buttonsDescContainers flex alignItemsCenter justifyContentCenter flex-col" id="buttonContainerDesc${i}">
-        ${html0}
+        ${html}
         </div>
         <div class="buttonsContainer flex alignItemsCenter justifyContentCenter flex-col" id="buttonContainer${i}">
         <div class="buttons" id="button${i}">0</div>
         </div>
         </div>`;
-    }
-    document.getElementById('allButtons').innerHTML = html;
-    if (document.getElementById("allButtons").innerHTML!=="") {
-        document.getElementById("allButtons").style.opacity="1";
+        document.getElementById(`buttonDesc${i}`).style.width = 90 / (beforeDecimal + afterDecimal) + "vw"
+        document.getElementById(`button${i}`).style.width = 90 / (beforeDecimal + afterDecimal) + "vw"
     }
     html = "";
-    html0 = "";
+    // console.log(document.getElementById("allButtons").innerHTML)
+    if (document.getElementById("allButtons").innerHTML!=="") {
+        document.getElementById("allButtons").style.opacity = "1";
+    }
     return true;
 }
 
@@ -82,8 +83,8 @@ for (let i = beforeDecimal; i < (beforeDecimal + afterDecimal); i++) {
     Num = Num * 2; // (1*2) === 2, (2*2) === 4
     ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], (1 / Num));
 }
-if (beforeDecimal!==afterDecimal) {
-    Num=Math.pow(2,beforeDecimal)
+if (beforeDecimal !== afterDecimal) {
+    Num = Math.pow(2, beforeDecimal)
 }
 // console.log(Num)
 for (let i = 0; i < beforeDecimal; i++) {
