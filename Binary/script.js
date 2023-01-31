@@ -65,7 +65,7 @@ let switchChanger = (container, val) => {
     document.getElementById('textID').innerText = number
 }
 
-// Doing Calculations accourding when Switch will ON(1 in the box)
+// Doing Calculations accourding when Switch will ON(1 in the box) else OFF(0 in the box)
 let Calculations = (container, val) => {
     if (container.innerText === "1") {
         number = number + val;
