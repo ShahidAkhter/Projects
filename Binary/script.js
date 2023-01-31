@@ -12,7 +12,7 @@ afterDecimal = Number.parseInt(prompt("Enter the level of Number you want after 
 // Adding HTML Using JS Dynamically
 let myHTML = (n) => {
     html = ""
-    document.getElementById('allButtons').innerHTML = "";
+    document.getElementById('allButtons').innerHTML="";
     for (let i = 0; i < n; i++) {
         // const element = arrbuttonkeys[i];
         if (i >= beforeDecimal) {
@@ -34,7 +34,7 @@ let myHTML = (n) => {
     }
     html = "";
     // console.log(document.getElementById("allButtons").innerHTML)
-    if (document.getElementById("allButtons").innerHTML !== "") {
+    if (document.getElementById("allButtons").innerHTML!=="") {
         document.getElementById("allButtons").style.opacity = "1";
     }
     return true;
@@ -78,43 +78,17 @@ let Calculations = (container, val) => {
 
 
 // Running Functions and done some work
-// myHTML(beforeDecimal + afterDecimal); // 2+2 === 4
-// console.time();
-// Num = 1;
-// for (let i = beforeDecimal; i < (beforeDecimal + afterDecimal); i++) {
-//     Num = Num * 2; // (1*2) === 2, (2*2) === 4
-//     ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], (1 / Num));
-// }
-// if (beforeDecimal !== afterDecimal) {
-//     Num = Math.pow(2, beforeDecimal)
-// }
-// // console.log(Num)
-// for (let i = 0; i < beforeDecimal; i++) {
-//     Num = Num / 2; // (4/2) === 2, (2/2) === 1
-//     ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], Num);
-// }
-// console.timeEnd()
-
-
-
-myHTML(beforeDecimal + afterDecimal);
-i = 0
-Num = Math.pow(2, beforeDecimal);
-const main = () => {
-    if (i < beforeDecimal) {
-        Num = Num / 2; // (4/2) === 2, (2/2) === 1
-        ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], Num);
-    } else {
-        Num = Num * 2; // (1*2) === 2, (2*2) === 4
-        ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], (1 / Num));
-    }
-    i += 1;
-    if (document.getElementById(`button${i}`)) {
-        main();
-    } else {
-        return true;
-    }
+myHTML(beforeDecimal + afterDecimal); // 2+2 === 4
+Num = 1;
+for (let i = beforeDecimal; i < (beforeDecimal + afterDecimal); i++) {
+    Num = Num * 2; // (1*2) === 2, (2*2) === 4
+    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], (1 / Num));
 }
-console.time();
-main()
-console.timeEnd();
+if (beforeDecimal !== afterDecimal) {
+    Num = Math.pow(2, beforeDecimal)
+}
+// console.log(Num)
+for (let i = 0; i < beforeDecimal; i++) {
+    Num = Num / 2; // (4/2) === 2, (2/2) === 1
+    ChangeText(document.getElementById(`button${i}`), arrbuttonkeys[i], Num);
+}
